@@ -1,0 +1,4 @@
+of_core:
+    resource: "@OFCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
