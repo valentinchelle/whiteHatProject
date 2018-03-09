@@ -5,8 +5,7 @@ body {
 
 #top-nav {
   height: 94px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 #top-nav .nav-wrapper ul, #top-nav .nav-wrapper ul li, #top-nav .nav-wrapper ul li a {
@@ -17,9 +16,11 @@ body {
   padding: 0px 36px;
   height: 100%;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
 }
