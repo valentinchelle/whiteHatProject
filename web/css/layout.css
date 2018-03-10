@@ -1,18 +1,55 @@
 body {
-  background-color: #213262;
-  font-family: 'Merriweather Sans', sans-serif;
+  background-color: #F8FAFF;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }
 
-#top-nav {
+/* GENERAL STYLE ( GRADIENTS/COLORS ) */
+.gradientBlue {
+  background: linear-gradient(to right, red, yellow);
+}
+
+.gradientGreen {
+  background: linear-gradient(to right, #53E3AD, #37CFD4);
+}
+
+.gradientRed {
+  background: linear-gradient(to right, #ff5281, #fe867d);
+}
+
+.red {
+  color: #ff5281;
+}
+
+/* top nav */
+nav {
+  background-color: #F8FAFF;
+  color: #3E396B;
+}
+
+nav ul a {
+  color: #3E396B;
+  font-weight: 300;
+}
+
+nav .brand-logo {
+  color: #3E396B;
+}
+
+#top-nav, #top-nav .container {
   height: 94px;
   box-shadow: none;
 }
 
-#top-nav .nav-wrapper ul, #top-nav .nav-wrapper ul li, #top-nav .nav-wrapper ul li a {
+#top-nav .nav-wrapper .container ul, #top-nav .nav-wrapper .container ul li, #top-nav .nav-wrapper .container ul li a {
   height: 100%;
 }
 
-#top-nav .nav-wrapper ul li a, #top-nav .nav-wrapper a.brand-logo {
+#top-nav .nav-wrapper .container ul li #signupButtonNavBar span {
+  border-radius: 40px;
+}
+
+#top-nav .nav-wrapper ul li a, #top-nav .nav-wrapper ul li #orElement, #top-nav .nav-wrapper a.brand-logo {
   padding: 0px 36px;
   height: 100%;
   display: -webkit-box;
@@ -36,5 +73,75 @@ body {
 .horizontalCenter .row {
   left: 50%;
   width: 100%;
+}
+
+.elevation0 {
+  box-shadow: 0 5px 15px 0 rgba(112, 128, 175, 0.2);
+}
+
+.elevation1 {
+  box-shadow: 0 10px 40px 0 rgba(62, 57, 107, 0.07), 0 2px 9px 0 rgba(62, 57, 107, 0.06);
+}
+
+.elevation2 {
+  box-shadow: 0 16px 32px 0 rgba(62, 57, 107, 0.2);
+}
+
+/* Section by section */
+#firstSection {
+  background: #F8FAFF;
+}
+
+#firstSection h1 {
+  color: #8994c6;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 40px;
+}
+
+/* Cards */
+.card {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 16px 32px 0 rgba(62, 57, 107, 0.2);
+}
+
+.card-icon img {
+  width: 100px;
+  height: 100px;
+  max-width: 150px;
+  border: 5px solid #fff;
+  margin-top: 10px;
+  box-shadow: -1px 2px 5px 1px rgba(207, 207, 207, 0.7), -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
+}
+
+.card_title {
+  font-weight: 500;
+  color: #000;
+  font-size: 20px;
+}
+
+.card_comment {
+  color: #8994c6;
+  font-weight: 200;
+}
+
+.btn-hollow {
+  padding: 3px;
+  border-radius: 40px;
+}
+
+.card_button .btn-hollow .textButton {
+  padding: 10px;
+  border-radius: 40px;
+  background-color: #fff;
+}
+
+.card_button .btn-hollow .textButton:hover {
+  background: none;
+  color: #fff;
 }
 /*# sourceMappingURL=layout.css.map */
