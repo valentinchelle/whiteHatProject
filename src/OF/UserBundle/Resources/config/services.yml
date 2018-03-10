@@ -1,0 +1,4 @@
+services:
+#    of_user.example:
+#        class: OF\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

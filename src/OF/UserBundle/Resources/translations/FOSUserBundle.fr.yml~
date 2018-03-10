@@ -1,0 +1,36 @@
+'Modification de profil': 'Modification de profil'
+'Modifier mon profil': 'Modifier mon profil'
+'Informations Personnelles': 'Informations Personnelles'
+'Adresse mail': 'Adresse mail'
+Téléphone: Téléphone
+Nom: Nom
+Prénom: Prénom
+'Informations Complémentaires': 'Informations Complémentaires'
+'Curicculum Vitae': 'Curicculum Vitae'
+Biographie: Biographie
+registration.checkemail: registration.checkemail
+registration.confirmed: registration.confirmed
+registration.back: registration.back
+registration.email.subject: registration.email.subject
+registration.email.message: registration.email.message
+Connexion: Connexion
+'Nom d''utilisateur': 'Nom d''utilisateur'
+'Mot de passe': 'Mot de passe'
+'S''en souvenir': 'S''en souvenir'
+'Mot de passe oublié ?': 'Mot de passe oublié ?'
+'Se connecter': 'Se connecter'
+'Pas encore membre ? S''enregistrer !': 'Pas encore membre ? S''enregistrer !'
+'S''enregistrer': 'S''enregistrer'
+'Already an account ? Login !': 'Déjà un compte ? Connectez-vous !'
+'Curriculum vitae': 'Curriculum vitae'
+'S''inscrire': 'S''inscrire'
+Enregistrer: Enregistrer
+'J''accepte les conditions générales': 'J''accepte les conditions générales'
+LIRE: LIRE
+Publications: Publications
+Consulter: Consulter
+registration.check_email: registration.check_email
+'Félicitations %username%, votre compte a bien été créé !': 'Félicitations %username%, votre compte a bien été créé !'
+'J''accepte les conditions générales.': 'J''accepte les conditions générales.'
+'Image de profil': 'Image de profil'
+'Téléphone': 'Téléphone' 

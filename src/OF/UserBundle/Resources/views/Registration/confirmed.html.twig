@@ -1,0 +1,20 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+	  <div class="row">
+      <div class="col s12 m12 white-text">
+        <div class="card-panel teal">
+             <p>{{ 'Félicitations %username%, votre compte a bien été créé !'|trans({'%username%': user.username}) }}</p>
+             
+		    {% if targetUrl %}
+		    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+		    {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+ 
+{% endblock fos_user_content %}

@@ -1,0 +1,27 @@
+{# src/OF/UserBundle/Resources/views/layout.html.twig #}
+
+{# On étend notre layout #}
+{% extends "OFCoreBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/UserBundle/userBundle.css') }}">
+{% endblock %}
+{# Dans notre layout, il faut définir le block body #}
+{% block body %}
+
+
+<div id ="" class="main-content">
+	<div class="row">
+			<div class="col s12">
+						  <br />
+				
+					{% block fos_user_content %}
+					{% endblock fos_user_content %}
+				
+			
+		</div>
+	</div>
+</div>
+		
+{% endblock %}

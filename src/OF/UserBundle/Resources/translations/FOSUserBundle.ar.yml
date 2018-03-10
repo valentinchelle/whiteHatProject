@@ -1,0 +1,33 @@
+'Modification de profil': 'تعديل الملف الشخصي'
+'Modifier mon profil': 'تعديل ملفي الشخصي'
+'Informations Personnelles': 'معلومات شخصية'
+'Adresse mail': 'البريد الالكتروني'
+Téléphone: 'رقم الهاتف'
+Nom: الكنية
+Prénom: الاسم
+'Informations Complémentaires': 'معلومات اضافية'
+Biographie: 'سيرة ذاتية'
+registration.check_email: registration.check_email
+registration.confirmed: registration.confirmed
+registration.back: registration.back
+registration.email.subject: registration.email.subject
+registration.email.message: registration.email.message
+Connexion: اتصال
+'Nom d''utilisateur': 'اسم المستخدم'
+'Mot de passe': 'كلمة المرور'
+'S''en souvenir': تذكرني
+'Mot de passe oublié ?': 'هل نسيت كلمة المرور ?'
+'Pas encore membre ? S''enregistrer !': ' ليس عضوا حتى الآن? تسجيل !'
+'S''enregistrer': تسجيل
+'Already an account ? Login !': 'املك حساب مسبقا ? تسجيل دخول !'
+'Se connecter': ' اتصال'
+'S''inscrire': تسجيل
+'Curriculum vitae': 'السيرة الذاتية'
+'J''accepte les conditions générales.': 'أنا موافق على شروط الاستخدام'
+LIRE: READ
+'Curicculum Vitae': 'Curicculum Vitae'
+Publications: Publications
+Consulter: Consulter
+'Félicitations %username%, votre compte a bien été créé !': 'Félicitations %username%, votre compte a bien été créé !'
+'Image de profil': 'صورة الملف'
+'J''accepte les conditions générales': 'أنا موافق على شروط الاستخدام'

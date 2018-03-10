@@ -12,7 +12,7 @@
     </head>
 
     <body >
-        <div class="navbar-fixed  ">
+    <div class="navbar-fixed  ">
             <nav id="top-nav">
                 <div class="nav-wrapper">
 
@@ -55,209 +55,17 @@
                 </div>
             </nav>
         </div>
+        {% block body %}
+        {% endblock %}
+        </body>
 
-        <section id="firstSection" class="fullHeight valign-wrapper horizontalCenter center-align">
-            <div class="container " id="mainContainer">
-                <div class="row">
-                    <div class="col s12">
-                        <h1>Cybersecurity<br/>
-                            expertise<br/>
-                            for everyone</h1>
-                    </div>
-                    <div class="col s12">
-                        <div class="row" id="listeInstances"></div>
-                    </div>
-                    <div class="col s12">
-                        <div style="display:none" id="no_games_available">
-                            There are no game available. You can still create one.<br/><br/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-                        </div>
-                        <a onclick="App.createContract()" class="waves-effect waves-light btn-large gradientRed">
-                            <i class="material-icons left">add_circle_outline</i>Create a game</a>
-                    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-                </div>
-            </div>
-        </section>
-
-        <section id="listWHCs" class="fullHeight valign-wrapper horizontalCenter center-align">
-            <div class="container">
-                <div class="row">
-                    <div class="col s12">
-                        <h3>A massive community of cybersecurity experts</h3>
-                    </div>
-                </div>
-                <div class="row" id="listeInstances">
-                    <div class="col m3">
-                        <div class=" card elevation1">
-                            <div class="center card-icon">
-                                <img src="{{asset('images/cisco-logo.jpg')}}" alt="" class="circle responsive-img">
-                            </div>
-                            <div class="card_title">
-                                CISCO
-                            </div>
-                            <div class="card_comment">
-                                Reward :
-                                <b>1000$</b>
-                                <br/>
-                                Estimated difficulty :
-                                <b>Hard</b>
-                            </div><br/>
-                            <div class="card_button ">
-
-                                <a class="waves-effect waves-light btn-hollow gradientRed red">
-                                    <div class="textButton">
-                                        More infos</div>
-                                </a>
-
-                            </div><br/>
-
-                        </div>
-                    </div>
-                    <div class="col m3">
-                        <div class=" card elevation1">
-                            <div class="center card-icon">
-                                <img src="{{asset('images/airbnb.png')}}" alt="" class="circle responsive-img">
-                            </div>
-                            <div class="card_title">
-                                AIRBNB
-                            </div>
-                            <div class="card_comment">
-                                Reward :
-                                <b>2750$</b>
-                                <br/>
-                                Estimated difficulty :
-                                <b>Medium</b>
-                            </div><br/>
-                            <div class="card_button ">
-
-                                <a class="waves-effect waves-light btn-hollow gradientRed red">
-                                    <div class="textButton">
-                                        More infos</div>
-                                </a>
-
-                            </div>
-                            <br/>
-                        </div>
-                    </div>
-                    <div class="col m3">
-                        <div class=" card elevation1">
-                            <div class="center card-icon">
-                                <img src="{{asset('images/uber.png')}}" alt="" class="circle responsive-img">
-                            </div>
-                            <div class="card_title">
-                                UBER
-                            </div>
-                            <div class="card_comment">
-                                Reward :
-                                <b>500$</b>
-                                <br/>
-                                Estimated difficulty :
-                                <b>Easy</b>
-                            </div>
-                            <br/>
-                            <div class="card_button ">
-
-                                <a class="waves-effect waves-light btn-hollow gradientRed red">
-                                    <div class="textButton">
-                                        More infos</div>
-                                </a>
-
-                            </div>
-                            <br/>
-                        </div>
-                    </div>
-                    <div class="col m3">
-                        <div class=" card elevation1">
-                            <div class="center card-icon">
-                                <img src="{{asset('images/google.jpg')}}" alt="" class="circle responsive-img">
-                            </div>
-                            <div class="card_title">
-                                Google
-                            </div>
-                            <div class="card_comment">
-                                Reward :
-                                <b>1000$</b>
-                                <br/>
-                                Estimated difficulty :
-                                <b>HARD</b>
-                            </div>
-                            <br/>
-                            <div class="card_button ">
-
-                                <a class="waves-effect waves-light btn-hollow gradientRed red">
-                                    <div class="textButton">
-                                        More infos</div>
-                                </a>
-
-                            </div>
-                            <br/>
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col s12">
-                    <div style="display:none" id="no_games_available">
-                        There are no game available. You can still create one.<br/><br/>
-
-                    </div>
-                    <a onclick="App.createContract()" class="center " href="#">View  all</a></div>
-
-            </div>
-        </div>
-    </section>
-    <section id="WHCPanel" class="fullHeight white-text valign-wrapper horizontalCenter center-align" style="display:none">
-
-        <a class="btn-floating btn-large waves-effect waves-light" onclick="App.showListWHCs()" style="float:left; position:absolute;">
-            <i class="material-icons">keyboard_arrow_left</i>
-        </a>
-
-        <div class="row">
-            <div class="col s6">
-                <div class="center white-text"><br/>
-                    <h5>Bank Account :</h5>
-                    <h3>
-                        <span id="soldeContrat"></span></h3><br/>
-                </div>
-            </div>
-            <div class="col s6 pull-right">
-                <div class=" center white-text"><br/>
-                    <h5>Last Game Result :</h5>
-                    <h3>
-                        <span id="resultatContrat"></span></h3><br/>
-                </div>
-            </div>
-            <div class="col s8 offset-s2">
-
-                <div class="input-field col s12">
-                    <input id="mise" type="text" class="pari">
-                    <label for="mise">
-                        Bet</label>
-                </div>
-
-                <div class="input-field col s12">
-                    <input id="nombre" type="text" class="pari">
-                    <label for="nombre">
-                        Choisissez un nombre</label>
-                </div>
-
-                <a href="#" onclick="App.bet()" class="btn-large btn-primary center">Bet</a>
-            </div>
-        </div>
-    </section>
-
-</div>
-</body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
-<script src="{{asset('js/truffle-contract.js')}}"></script>
-<!-- Compiled and minified JavaScript -->
-<script src="{{asset('js/app.js')}}"></script>
+    <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+    <script src="{{asset('js/truffle-contract.js')}}"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="{{asset('js/app.js')}}"></script>
 
 </html>

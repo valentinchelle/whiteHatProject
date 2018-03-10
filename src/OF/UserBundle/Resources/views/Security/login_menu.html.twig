@@ -1,0 +1,41 @@
+{# Fichier qui overwrite le vendor/friendsofsymfony/FOSUSERBUNDLE/ressources/views/Security/#}
+
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="col-xs-12">
+<form action="{{ path("fos_user_security_check") }}"  method="post">
+        {% if error %}
+             <div class="alert alert-danger col-xs-12 disapear" fadeOutDuration="20000">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+    <div id="loginbloc" style="">
+       
+        {% if csrf_token %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% endif %}
+
+        <div class="input-field">
+            <input class="col-xs-12 form-control " type="text" id="" name="_username" value="{{ last_username }}" placeholder="Username" required="required" />
+            
+        </div>
+        <div class="input-field">
+            <input class="form-control col-xs-12" type="password" id="" name="_password" placeholder="Password" required="required" />
+        </div>
+
+  <div class="row" style="margin-top:-40px;">
+        <div  class="input-field" style="margin-top:20px;">
+        <p class="pull-left"  style="margin-left:10px;">
+            <input type="checkbox" id="remember_me2" name="_remember_me" value="on" style=" margin-right:30px;float:left; "/>
+
+            <label for="remember_me2">S'en souvenir</label>
+        </p>
+
+            <a href="{{path("fos_user_resetting_request")}}" class="pull-right" style="font-size:10px">Mot de passe oublié ?</a>
+        </div>
+</div>
+    </div>
+
+    <input type="submit" class="col-xs-12 btn btn-primary btn waves-effect waves-light" id="_submit" name="_submit" value="Se connecter" />
+</form>
+</div>
+<span  style="text-align:center; color:#95a5a6">Not a member yet ? <a href="{{path("fos_user_registration_register") }}" class="pull-right"> Sign up now ! </a></span>
+
+

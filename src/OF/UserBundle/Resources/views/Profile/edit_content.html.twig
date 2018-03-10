@@ -1,0 +1,51 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% if not form.profilePictureFile.vars.valid %}
+	<script>
+	  var $toastContent = $('<i class="material-icons left">error</i> {{ form_errors(form.profilePictureFile) }}');
+	  Materialize.toast($toastContent, 2000, 'deep-orange darken-3 white-text');
+    </script>
+{% endif %}
+
+
+<div class="card-panel white">
+	<div class="panel-heading"><i class="material-icons left">person</i> <b> {{'Modification de profil'|trans|upper}} </b></div>
+	<div class="panel-body"><br />
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+	<div class="row">
+		<div class="col m6 s12">
+		    {{ form_row(form.username) }}
+		    {{ form_row(form.email) }}
+		    {{ form_row(form.telephone) }}
+		    {{ form_row(form.bio) }}
+		    {{'Curriculum vitae'|trans}} {{ form_row(form.cvFile) }}
+		</div>
+		<div class="col m6 s12 center">
+		   
+		    {{'Image de profil'|trans}}
+
+          <div class="center-align">
+            {{ form_widget(form.profilePictureFile, {'attr':{'class': 'imgInp'}})}}
+         </div>
+		    <div class="center-align"><br />
+		    	
+	            <label for="{{form.profilePictureFile.vars.id}}" class="label-file center-align">
+	            
+
+	                <img id="blah" src="{{ asset(app.user.getWebProfilePicturePath) }}" style="width:100%;" class="" alt="Image" />
+	                  <br />
+	                <div class="middle valign-wrapper center-align">
+	                  <div class="text"><i class="material-icons">mode edit</i></div>
+	                </div>
+
+	           	</label>
+            </div>
+
+
+    	</div>
+    	{{ form_row(form.current_password) }}
+    	<div class="center">{{ form_row(form.save) }}</div>
+	</div>
+
+{{ form_end(form) }}
+</div>
+</div>

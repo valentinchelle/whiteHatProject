@@ -1,0 +1,45 @@
+{% extends "@FOSUser/layout.html.twig" %}
+{% block title %} {{ user.nom|upper}} {{ user.prenom|capitalize}}{% endblock %}
+{% block fos_user_content %}
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="card-panel white">
+	<div class="row">
+		<div class="fos_user_user_show col s12">
+
+			<div class="profilepic" style=" display:flex;   justify-content:center; width:100%;  align-items:center;">
+				<img style="border: 5px solid #fff;  width:160px; height:160px; margin: 0 auto; margin-top : -50px; " class="circle"  src="{{ asset(user.getWebProfilePicturePath) }}" title="profilePicture">
+			</div>
+
+			<div style="text-align:center; width:100%; font-size : 25px; font-weight:600" >{{ user.nom|upper}} {{ user.prenom|capitalize}}</div>
+			<div style="text-align:center; width:100%; font-size : 20px; font-weight:400" ><i>{{ user.username }}</i></div>
+			<div style="text-align:center; width:100%; font-size : 13px; font-weight:400" >  <a href="{{ asset(user.getWebCvPath) }}">{{'Curicculum Vitae'|trans}}</a></div>
+
+			<br />
+			<div class="row">
+					
+				<div class="col m12 s12">
+				<div class="panel panel-default ">
+					<div class="panel-heading"><b>{{'Publications'|trans}}</b></div>
+					 <div class="row">
+					{% for publication in publications %}
+						<a href="{{path('of_blog_publication_view',{'id':publication.id})}}" style="color:#000">
+					        <div class="col s12">
+					          <div class="card grey lighten-5 hoverable">
+					            <div class="card-content">
+					            	 <b>{{publication.title}}</b> - <span style="color:#a1a1a1" >{{publication.date|localizeddate('long', 'none')}}</span>
+					            </div>
+					           </div>
+					         </div>
+				     	</a>
+						
+					{% endfor %}
+						</div>
+					
+				</div>
+				</div>
+
+		</div>
+		</div>
+	</div>
+</div>
+{% endblock fos_user_content %}

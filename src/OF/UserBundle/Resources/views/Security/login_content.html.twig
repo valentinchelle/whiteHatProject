@@ -1,0 +1,127 @@
+{# Fichier qui overwrite le vendor/friendsofsymfony/FOSUSERBUNDLE/ressources/views/Security/#}
+
+{% trans_default_domain 'FOSUserBundle' %}
+   
+    <div class="row">
+    <div class="col  m6 s12 offset-m3 " {% if page != "login" %} style="display: none;" {% endif %} id="connexionPanel">
+        <div class="divider-new mt-4 mb-5">
+          <div class="h3-responsive">{{'Connexion'|trans}} </div>
+        </div>
+
+        <div class="card-panel white">
+
+            <form action="{{ path("fos_user_security_check") }}"  method="post">
+
+                <div id="loginbloc" style="">
+                    
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+                    <div class="input-field">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input class="col-xs-12 form-control " type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                        <label for="username">{% trans %}Nom d'utilisateur{% endtrans %}</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input class="col-xs-12 form-control" type="password" id="password" name="_password" required="required" />
+                        <label for="password">{{'Mot de passe'|trans}}</label>
+                    </div>
+
+              <div class="row" style="">
+
+                    <div  class="form-group">
+                    <p class="pull-left"  style="margin-left:10px;">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" style=" margin-right:30px;float:left; "/>
+
+                        <label for="remember_me">{% trans %}S'en souvenir{% endtrans %}</label>
+                    </p>
+                        <a href="{{path("fos_user_resetting_request")}}" class="pull-right" >{% trans %}Mot de passe oublié ?{% endtrans %}</a>
+                    </div>
+                    </div>
+                </div>
+
+                <input type="submit" class="btn btn-primary col s12" id="_submit" name="_submit" value="{{'Se connecter'|trans}}" /><br />
+            </form>
+            </div>
+            <a href="#" class="col s12" style="text-align:center; color:#95a5a6" id="linkRegister">{% trans %}Pas encore membre ? S'enregistrer !{% endtrans %}</a>
+        </div>
+
+
+
+
+            <div class="col m6 s12  offset-m3" {% if page == "login" %} style="display: none;" {% endif %} id="enregistrementPanel">
+             <div class="divider-new mt-4 mb-5">
+              <div class="h3-responsive">{% trans %}S'enregistrer{% endtrans %} </div>
+            </div>
+              <div class="row card-panel white">
+                {{ form_start(formRegister, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                <div class="col s12">
+                    {{form_row(formRegister.email, {attr :{'class': 'validate'}})}}
+                </div>
+                <div class="col m6 s12">
+                <div class="row">
+                <div class="input-field col s12">
+                        <input class="s12 form-control validate" type="text" id="fos_user_registration_form_nom" name="fos_user_registration_form[nom]" required="required" />
+                        <label for="fos_user_registration_form[nom]">{{'Nom'|trans}}</label>
+                </div></div>
+                </div>
+                 <div class="col m6 s12">
+                 <div class="row">
+                <div class="input-field col s12">
+                        <input class="form-control validate" type="text" id="fos_user_registration_form_prenom" name="fos_user_registration_form[prenom]" required="required" />
+                        <label for="fos_user_registration_form[prenom]">{{'Prénom'|trans}}</label>
+                </div></div>
+                </div>
+                <div class="col s12">
+                    {{form_row(formRegister.username, {attr :{'class': 'validate'}})}}
+                </div>
+                <div class="col m6 s12">
+                    {{form_row(formRegister.plainPassword.first, {attr :{'class': 'validate'}})}}
+                </div>
+                {{ form_errors(formRegister.plainPassword.first, {attr :{'class': 'validate'}}) }}
+                <div class="col m6 s12">
+                    {{form_row(formRegister.plainPassword.second, {attr :{'class': 'validate'}})}}
+                </div>
+                 {% trans %}Curriculum vitae{% endtrans %}:{{ form_row(formRegister.cvFile) }}
+
+                    
+                <input type="checkbox" id="test6" required="required" />
+                <label for="test6">{% trans %}J'accepte les conditions générales{% endtrans %}.  <a href="{{asset('termofuse/termsofuse.pdf')}}" target="_blank">{{'LIRE'|trans}}.</a></label><br />
+                <br />
+
+                {{ form_widget(formRegister._token) }}
+                <div class="col s12">
+                    <button type="submit" id="fos_user_registration_form_save" name="fos_user_registration_form[save]" class="btn btn-primary col s12" label="S'inscire">{%trans%}S'inscrire{%endtrans%}</button>
+
+                 </div>
+
+                    
+
+                </div>                
+                 <a href="#" class="col s12 " style="text-align:center; color:#95a5a6" id="linkLogin">{% trans %}Already an account ? Login !{% endtrans %}</a>
+            </div>
+    
+</div>
+
+{% block javascripts %}
+    <script>
+
+$(document).ready(function(){
+        $("#linkRegister").click(function(e){
+            e.preventDefault();
+            $("#connexionPanel").fadeOut(300, function(){
+                $("#enregistrementPanel").fadeIn(300);
+            });
+            
+        });
+        $("#linkLogin").click(function(e){
+            e.preventDefault();
+            $("#enregistrementPanel").fadeOut(300, function(){
+                $("#connexionPanel").show().fadeIn(300);
+            });
+            
+        });
+    });
+    </script>
+{% endblock %}

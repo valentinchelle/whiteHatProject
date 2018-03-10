@@ -1,11 +1,28 @@
 # To get started with security, check out the documentation:
-# https://symfony.com/doc/current/security.html
+# http://symfony.com/doc/current/security.html
 security:
+    access_control:
 
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+        - { path: ^/adminpanel, roles: ROLE_ADMIN }
+
+    encoders:
+
+        OF\UserBundle\Entity\User: sha512
+    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
+        main:
+
+            id: fos_user.user_provider.username
+     
+    role_hierarchy:
+
+        ROLE_PUBLISHER: ROLE_USER
+
+        ROLE_ADMIN:       ROLE_PUBLISHER, ROLE_USER, ROLE_MODERATOR
+
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -14,11 +31,25 @@ security:
             security: false
 
         main:
-            anonymous: ~
-            # activate different ways to authenticate
 
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
+            pattern:      ^/
 
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+            anonymous:    true
+
+            provider:     main
+
+            form_login:
+
+                login_path: fos_user_security_login
+
+                check_path: fos_user_security_check
+
+            logout:
+
+                path:       fos_user_security_logout
+
+                target:     /
+
+            remember_me:
+
+                secret:     %secret% # %secret% est un paramètre de parameter

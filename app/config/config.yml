@@ -30,7 +30,8 @@ framework:
     assets: ~
     php_errors:
         log: true
-
+    templating:
+        engines: ['twig']
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
@@ -65,3 +66,21 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+fos_user:
+
+    db_driver:     orm                       # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
+
+    firewall_name: main                      # Le nom du firewall derrière lequel on utilisera ces utilisateurs
+
+    user_class:    OF\UserBundle\Entity\User # La classe de l'entité User que nous utilisons
+    
+    from_email:
+        address: "noreply@test.com"
+        sender_name: "No Reply"
+    profile:
+        form:
+            type: OF\UserBundle\Form\Type\ProfileFormType
+    registration:
+        form:
+            type: OF\UserBundle\Form\Type\RegistrationFormType

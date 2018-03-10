@@ -1,0 +1,23 @@
+fos_user_security_login:
+    path:     /login
+    defaults: 
+      _controller: OFUserBundle:User:loginAndRegister
+      page: login 
+    
+fos_user_security_register:
+    path:     /register   
+    defaults: 
+      _controller: OFUserBundle:User:loginAndRegister
+      page: register
+
+    
+fos_user_security_check:
+    path:     /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+fos_user_security_logout:
+    path:     /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+fos_user_security_profile:
+    path:     /viewprofile/{id}
+    defaults: { _controller: FOSUserBundle:User:viewProfile }
