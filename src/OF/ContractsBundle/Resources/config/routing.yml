@@ -1,0 +1,3 @@
+of_contracts_homepage:
+    path:     /
+    defaults: { _controller: OFContractsBundle:Default:index }

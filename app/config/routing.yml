@@ -4,6 +4,9 @@ of_core:
 of_user:
     resource: "@OFUserBundle/Resources/config/routing.yml"
     prefix:   /
+of_contracts:
+    resource: "@OFContractsBundle/Resources/config/routing.yml"
+    prefix:   /
 
 fos_user_profile:
 
