@@ -21,63 +21,65 @@
                 Materialize.toast("<i class='material-icons'>error</i>  {{ error.messageKey|trans(error.messageData, 'security') }}", 4000, 'red darken-3 white-text'); // 4000 is the duration of the toast
             </script>
         {% endif %}
-  
 
-        <div class="navbar-fixed">
-            <nav id="top-nav">
-                <div class="nav-wrapper">
+        <header>
+            <div class="navbar-fixed">
+                <nav id="top-nav">
+                    <div class="nav-wrapper">
 
-                    <a href="{{path('of_core_homepage')}}" class="brand-logo">LOGO</a>
-                    <div class="container">
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li>
-                                <a href="sass.html">
-                                    Pricing
-                                </a>
-                            </li>
-                            <li>
-                                <a href="badges.html">
-                                    Enterprise
-                                </a>
-                            </li>
-                            <li>
-                                <a href="collapsible.html">
-                                    Experts
-                                </a>
-                            </li>
-                        </ul>
-                        <ul id="" class="right">
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="{{path('of_core_homepage')}}" class="brand-logo">LOGO</a>
+                        <div class="container">
+                            <ul id="nav-mobile" class="left hide-on-med-and-down">
                                 <li>
-                                    <a href="{{path('fos_user_profile_show')}}" ><img class="circle left" src="{{ asset(app.user.getWebProfilePicturePath) }}" style="height : 50px; width:50px; margin-right:5px; margin-left:5px;" alt="">
-                                        {{app.user.prenom|capitalize}}</a>
-                                </li>
-
-                            {% else %}
-
-                                <li>
-                                    <a href="{{path('fos_user_security_login')}}">
-                                        Login
+                                    <a href="sass.html">
+                                        Pricing
                                     </a>
                                 </li>
                                 <li>
-                                    <span id="orElement">or</span>
-                                </li>
-                                <li>
-                                    <a id="signupButtonNavBar" href="{{path('fos_user_security_register')}}">
-                                        <span class=" btn-large waves-effect waves-light gradientGreen">Sign up</span>
+                                    <a href="badges.html">
+                                        Enterprise
                                     </a>
                                 </li>
-                            {% endif %}
-                        </ul>
+                                <li>
+                                    <a href="collapsible.html">
+                                        Experts
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul id="" class="right">
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <li>
+                                        <a href="{{path('fos_user_profile_show')}}"><img class="circle left" src="{{ asset(app.user.getWebProfilePicturePath) }}" style="height : 50px; width:50px; margin-right:5px; margin-left:5px;" alt="">
+                                            {{app.user.prenom|capitalize}}</a>
+                                    </li>
 
+                                {% else %}
+
+                                    <li>
+                                        <a href="{{path('fos_user_security_login')}}">
+                                            Login
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span id="orElement">or</span>
+                                    </li>
+                                    <li>
+                                        <a id="signupButtonNavBar" href="{{path('fos_user_security_register')}}">
+                                            <span class=" btn-large waves-effect waves-light gradientGreen">Sign up</span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
 
-        </div>
-             
-        {% block body %}{% endblock %}
+            </div>
+        </header>
+        <main>
+            {% block body %}{% endblock %}
+        </main>
     </body>
 
     <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
@@ -86,30 +88,30 @@
     <script src="{{asset('js/app.js')}}"></script>
     <!-- Initialisations -->
     <script>
-    
+
         $(document).ready(function () {
             $(".button-collapse").sideNav();
             $('select').material_select();
-            
+
         });
     </script>
     <!-- image import -->
     <script>
-       function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-        reader.onload = function (e) {
-            $('#blah').attr('src', e.target.result);
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
         }
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-  $(".imgInp").change(function(){
-      readURL(this);
-  });
-</script>
+        $(".imgInp").change(function () {
+            readURL(this);
+        });
+    </script>
     {% block javascripts %}{% endblock %}
 </html>

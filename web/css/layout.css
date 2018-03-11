@@ -78,6 +78,10 @@ nav .brand-logo {
   margin-top: -94px;
 }
 
+main {
+  padding-top: 30px;
+}
+
 .horizontalCenter .row {
   left: 50%;
   width: 100%;
