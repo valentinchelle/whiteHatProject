@@ -7,7 +7,7 @@
 {% endif %}
 
 
-<div class="card-panel white">
+<div class="card elevation1 white">
 	<div class="panel-heading"><i class="material-icons left">person</i> <b> {{'Modification de profil'|trans|upper}} </b></div>
 	<div class="panel-body"><br />
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
@@ -17,7 +17,6 @@
 		    {{ form_row(form.email) }}
 		    {{ form_row(form.telephone) }}
 		    {{ form_row(form.bio) }}
-		    {{'Curriculum vitae'|trans}} {{ form_row(form.cvFile) }}
 		</div>
 		<div class="col m6 s12 center">
 		   
@@ -42,8 +41,12 @@
 
 
     	</div>
+				<div class="row">
+				<div class="col s12">
     	{{ form_row(form.current_password) }}
     	<div class="center">{{ form_row(form.save) }}</div>
+			</div>
+			</div>
 	</div>
 
 {{ form_end(form) }}

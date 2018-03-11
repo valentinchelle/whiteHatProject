@@ -196,7 +196,7 @@ class User extends BaseUser
      */
     public function getWebProfilePicturePath() {
 
-        return '/'.$this->getUploadDir().'/'.$this->getProfilePicturePath(); 
+        return ''.$this->getUploadDir().'/'.$this->getProfilePicturePath(); 
     }
 
     /**

@@ -196,4 +196,72 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   cursor: pointer;
 }
+
+/* input img */
+.imgInp {
+  display: none;
+}
+
+.label-file {
+  cursor: pointer;
+  color: #00b1ca;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  width: 50%;
+}
+
+.label-file:hover {
+  color: #25a5c4;
+}
+
+/* et on masque le input */
+.imgInp {
+  display: none;
+}
+
+.label-file img {
+  opacity: 1;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.label-file .middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.label-file:hover img {
+  opacity: 0.3;
+}
+
+.label-file:hover .middle {
+  opacity: 1;
+}
+
+.label-file .middle .text i {
+  font-size: 44px;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.label-file .middle:hover .text i {
+  font-size: 44px;
+  color: #333333;
+  margin-left: -180px;
+}
+
+.label-file .middle .text i {
+  font-size: 44px;
+  color: #333333;
+  margin-left: -180px;
+}
 /*# sourceMappingURL=layout.css.map */

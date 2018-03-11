@@ -27,7 +27,7 @@
             <nav id="top-nav">
                 <div class="nav-wrapper">
 
-                    <a href="#" class="brand-logo">LOGO</a>
+                    <a href="{{path('of_core_homepage')}}" class="brand-logo">LOGO</a>
                     <div class="container">
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
                             <li>
@@ -49,7 +49,7 @@
                         <ul id="" class="right">
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <li>
-                                    <a href="{{path('fos_user_profile_show')}}" ><img class="circle left" src="{{ asset(app.user.getWebProfilePicturePath) }}" style="height : 30px; width:30px; margin-top:15px; margin-right:5px; margin-left:5px;" alt="">
+                                    <a href="{{path('fos_user_profile_show')}}" ><img class="circle left" src="{{ asset(app.user.getWebProfilePicturePath) }}" style="height : 50px; width:50px; margin-right:5px; margin-left:5px;" alt="">
                                         {{app.user.prenom|capitalize}}</a>
                                 </li>
 
@@ -90,7 +90,26 @@
         $(document).ready(function () {
             $(".button-collapse").sideNav();
             $('select').material_select();
+            
         });
     </script>
+    <!-- image import -->
+    <script>
+       function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+  $(".imgInp").change(function(){
+      readURL(this);
+  });
+</script>
     {% block javascripts %}{% endblock %}
 </html>

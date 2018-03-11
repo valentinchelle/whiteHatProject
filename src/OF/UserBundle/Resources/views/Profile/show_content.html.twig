@@ -1,10 +1,10 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
+<br />
     <div class="row">
-        <div class="fos_user_user_show col s12 m8 offset-m2">
+        <div class="fos_user_user_show col s12 ">
 	<div class="card elevation1 white">
             <div class="profilepic" style=" display:flex;   justify-content:center; width:100%;  align-items:center;">
-                <img style="border: 5px solid #fff;  width:160px; height:160px; margin: 0 auto; margin-top : -50px; " class="circle" src="{{ asset(user.getWebProfilePicturePath) }}" title="profilePicture">
+                <img style="border: 5px solid #fff;  width:160px; height:160px; margin: 0 auto; margin-top : -50px; " class=" elevation0 circle" src="{{ asset(user.getWebProfilePicturePath) }}" title="profilePicture">
             </div>
 
             <div style="text-align:center; width:100%; font-size : 25px; font-weight:600">{{ user.nom|upper}}
