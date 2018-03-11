@@ -24,6 +24,13 @@ body{
   .red{
       color:$font-color-red;
   }
+
+  .green{
+      color:#53E3AD;
+  }
+  .light_dark_font{
+      color:$font-color-light;
+  }
 /* top nav */
 nav{
     background-color:$background-color;
@@ -98,10 +105,10 @@ box-shadow:0 16px 32px 0 rgba(62,57,107,0.2);
 
 /* Cards */
 .card{
-    padding:10px;
+    padding:20px;
     border-radius:5px;
 }
-.card:hover{
+.hoverable_card:hover{
     box-shadow:0 16px 32px 0 rgba(62,57,107,0.2);
    
 }
@@ -138,4 +145,49 @@ box-shadow: -1px 2px 5px 1px rgba(207, 207, 207, 0.7),
 .card_button .btn-hollow .textButton:hover{
     background:none;
     color:#fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+    line-height: 1.3;
+}
+
+
+
+.btn-hollow input[type="submit"]{
+    cursor: pointer;
+    padding:10px;
+    border-radius:40px;
+    background-color:#fff;
+    cursor: pointer;
+    font-weight: 500;
+}
+.btn-hollow input[type="submit"]:hover{
+    background:none;
+    color:#fff;
+    cursor: pointer;
+}
+
+.btn-round{
+    color:#fff;
+    padding:10px;
+    border-radius:40px;
+    font-weight: 500;
+}
+
+
+.btn-round-input{
+    color:#fff;
+ 
+    border-radius:40px;
+    font-weight: 500;
+}
+.btn-round-input input[type="submit"]{
+    padding:10px;
+    color:#fff;
+    cursor: pointer;
+}
+.btn-round-input input[type="submit"]:hover{
+    color:#fff;
+    cursor: pointer;
 }

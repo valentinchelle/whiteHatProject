@@ -21,6 +21,14 @@ body {
   color: #ff5281;
 }
 
+.green {
+  color: #53E3AD;
+}
+
+.light_dark_font {
+  color: #8994c6;
+}
+
 /* top nav */
 nav {
   background-color: #F8FAFF;
@@ -101,11 +109,11 @@ nav .brand-logo {
 
 /* Cards */
 .card {
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
 }
 
-.card:hover {
+.hoverable_card:hover {
   box-shadow: 0 16px 32px 0 rgba(62, 57, 107, 0.2);
 }
 
@@ -143,5 +151,49 @@ nav .brand-logo {
 .card_button .btn-hollow .textButton:hover {
   background: none;
   color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
+  line-height: 1.3;
+}
+
+.btn-hollow input[type="submit"] {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 40px;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-hollow input[type="submit"]:hover {
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-round {
+  color: #fff;
+  padding: 10px;
+  border-radius: 40px;
+  font-weight: 500;
+}
+
+.btn-round-input {
+  color: #fff;
+  border-radius: 40px;
+  font-weight: 500;
+}
+
+.btn-round-input input[type="submit"] {
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-round-input input[type="submit"]:hover {
+  color: #fff;
+  cursor: pointer;
 }
 /*# sourceMappingURL=layout.css.map */

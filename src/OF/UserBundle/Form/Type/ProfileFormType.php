@@ -19,9 +19,8 @@ class ProfileFormType extends AbstractType
         $builder->add('telephone',TextType::class, array(
     'required'   => false, 'label' => 'Téléphone'));
         $builder->add('bio',TextType::class, array(
-    'required'   => false, 'label' => 'Biographie'))
-        ->add('cvFile', FileType::class,array('label' => false, 'required' => false));
-
+    'required'   => false, 'label' => 'Biographie'));
+    
 
     }
 

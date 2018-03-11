@@ -3,12 +3,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
    
     <div class="row">
-    <div class="col  m6 s12 offset-m3 " {% if page != "login" %} style="display: none;" {% endif %} id="connexionPanel">
-        <div class="divider-new mt-4 mb-5">
-          <div class="h3-responsive">{{'Connexion'|trans}} </div>
-        </div>
-
-        <div class="card-panel white">
+    
+    <div class="col  m4 s12 offset-m4 " {% if page != "login" %} style="display: none;" {% endif %} id="connexionPanel">
+        
+    <h3 class="center">Welcome back !</h3>
+        <div class="card elevation1 ">
 
             <form action="{{ path("fos_user_security_check") }}"  method="post">
 
@@ -31,30 +30,28 @@
               <div class="row" style="">
 
                     <div  class="form-group">
-                    <p class="pull-left"  style="margin-left:10px;">
-                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" style=" margin-right:30px;float:left; "/>
-
-                        <label for="remember_me">{% trans %}S'en souvenir{% endtrans %}</label>
-                    </p>
-                        <a href="{{path("fos_user_resetting_request")}}" class="pull-right" >{% trans %}Mot de passe oublié ?{% endtrans %}</a>
+                   
+                        <a href="{{path("fos_user_resetting_request")}}" class="light_dark_font right" >{% trans %}Mot de passe oublié ?{% endtrans %}</a>
                     </div>
                     </div>
                 </div>
-
-                <input type="submit" class="btn btn-primary col s12" id="_submit" name="_submit" value="{{'Se connecter'|trans}}" /><br />
+                <div class="center">
+                 <input type="submit" class="btn-round-input white waves-effect waves-light gradientGreen" id="_submit" name="_submit" value="{{'Se connecter'|trans}}" />
+                </div>
             </form>
             </div>
-            <a href="#" class="col s12" style="text-align:center; color:#95a5a6" id="linkRegister">{% trans %}Pas encore membre ? S'enregistrer !{% endtrans %}</a>
+            <a href="#" class="col s12 center light_dark_font" id="linkRegister">{% trans %}Pas encore membre ? S'enregistrer !{% endtrans %}</a>
         </div>
 
 
 
 
-            <div class="col m6 s12  offset-m3" {% if page == "login" %} style="display: none;" {% endif %} id="enregistrementPanel">
+            <div class="col m4 s12  offset-m4" {% if page == "login" %} style="display: none;" {% endif %} id="enregistrementPanel">
+            <h3 class="center">Welcome !</h3>
+             <h5 class="center light_dark_font" style="margin-top:-20px;">Create an account</h5>
              <div class="divider-new mt-4 mb-5">
-              <div class="h3-responsive">{% trans %}S'enregistrer{% endtrans %} </div>
             </div>
-              <div class="row card-panel white">
+              <div class="card elevation1">
                 {{ form_start(formRegister, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
                 <div class="col s12">
                     {{form_row(formRegister.email, {attr :{'class': 'validate'}})}}
@@ -83,23 +80,19 @@
                 <div class="col m6 s12">
                     {{form_row(formRegister.plainPassword.second, {attr :{'class': 'validate'}})}}
                 </div>
-                 {% trans %}Curriculum vitae{% endtrans %}:{{ form_row(formRegister.cvFile) }}
-
-                    
-                <input type="checkbox" id="test6" required="required" />
-                <label for="test6">{% trans %}J'accepte les conditions générales{% endtrans %}.  <a href="{{asset('termofuse/termsofuse.pdf')}}" target="_blank">{{'LIRE'|trans}}.</a></label><br />
-                <br />
+       
 
                 {{ form_widget(formRegister._token) }}
-                <div class="col s12">
-                    <button type="submit" id="fos_user_registration_form_save" name="fos_user_registration_form[save]" class="btn btn-primary col s12" label="S'inscire">{%trans%}S'inscrire{%endtrans%}</button>
+                <br />
+                <div class="center">
+                    <input type="submit" id="fos_user_registration_form_save" name="fos_user_registration_form[save]" class="btn-round-input white waves-effect waves-light gradientGreen" label="{{'Register'|trans}}"/>
 
                  </div>
 
                     
 
                 </div>                
-                 <a href="#" class="col s12 " style="text-align:center; color:#95a5a6" id="linkLogin">{% trans %}Already an account ? Login !{% endtrans %}</a>
+                 <a href="#" class="col s12 light_dark_font" style="text-align:center;" id="linkLogin">{% trans %}Already an account ? Login !{% endtrans %}</a>
             </div>
     
 </div>

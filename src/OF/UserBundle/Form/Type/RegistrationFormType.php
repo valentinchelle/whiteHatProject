@@ -20,7 +20,6 @@ class RegistrationFormType extends AbstractType
         // add your custom field
         $builder->add('nom', TextType::class, array('label' => 'Nom'))
         ->add('prenom', TextType::class, array('label' => 'Prénom'))
-        ->add('cvFile', FileType::class,array('label' => false, 'required' => false))
         ->add("save", SubmitType::class, array('attr'   =>  array(
                 'class'   => 'col s12 m6 offset-m3', 'label' => 'S\'inscire')
             ));

@@ -1,40 +1,66 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="card-panel white">
-<div class="row">
-<div class="fos_user_user_show col s12">
 
-		<div class="profilepic" style=" display:flex;   justify-content:center; width:100%;  align-items:center;">
-			<img style="border: 5px solid #fff;  width:160px; height:160px; margin: 0 auto; margin-top : -50px; " class="circle"  src="{{ asset(user.getWebProfilePicturePath) }}" title="profilePicture">
-		</div>
+    <div class="row">
+        <div class="fos_user_user_show col s12 m8 offset-m2">
+	<div class="card elevation1 white">
+            <div class="profilepic" style=" display:flex;   justify-content:center; width:100%;  align-items:center;">
+                <img style="border: 5px solid #fff;  width:160px; height:160px; margin: 0 auto; margin-top : -50px; " class="circle" src="{{ asset(user.getWebProfilePicturePath) }}" title="profilePicture">
+            </div>
 
-		<div style="text-align:center; width:100%; font-size : 25px; font-weight:600" >{{ user.nom|upper}} {{ user.prenom|capitalize}}</div>
-		<div style="text-align:center; width:100%; font-size : 20px; font-weight:400" ><i>{{ user.username }}</i></div>
-		<div style="text-align:center; width:100%; font-size : 13px; font-weight:400" >  <a href="{{ path('fos_user_profile_edit')}}">{{'Modifier mon profil'|trans}}</a></div>
+            <div style="text-align:center; width:100%; font-size : 25px; font-weight:600">{{ user.nom|upper}}
+                {{ user.prenom|capitalize}}</div>
+            <div style="text-align:center; width:100%; font-size : 20px; font-weight:400">
+                <i>{{ user.username }}</i>
+            </div>
+            <div style="text-align:center; width:100%; font-size : 13px; font-weight:400">
+                <a href="{{ path('fos_user_profile_edit')}}">{{'Modifier mon profil'|trans}}</a>
+            </div>
 
-		<br />
-		<div class="row">
-				<div class="col m6 s12">
-			<div class="panel panel-default ">
-				<div class="panel-heading"><b>{{'Informations Personnelles'|trans}}</b></div>
-				<div class="panel-body">
-					<b> {{'Adresse mail'|trans}} </b>: {{ user.email }}<br /> 
-					<b> {{'Téléphone'|trans}} </b>: {{ user.telephone }}</br />
-					<b> {{'Nom'|trans}} </b> : {{ user.nom|upper }}<br />
-					<b> {{'Prénom'|trans}} </b> : {{ user.prenom|capitalize }}
-				</div>
-			</div>
-			</div>
-			<div class="col m6 s12">
-			<div class="panel panel-default ">
-				<div class="panel-heading"><b>{{'Informations Complémentaires'|trans}}</b></div>
-				<div class="panel-body">
-				<b> {{'Curicculum Vitae'|trans}} </b> : <a href="{{ asset(user.getWebCvPath) }}">{{'Consulter'|trans}}</a><br />
-				<b> {{'Biographie'|trans}} </b>: {{ user.bio }}</br />
-				</div>
-			</div>
-			</div>
+            <br/>
+            <div class="row">
+                <div class="col m6 s12">
+                    <div class="panel panel-default ">
+                        <div class="panel-heading">
+                            <b>{{'Informations Personnelles'|trans}}</b>
+                        </div>
+                        <div class="panel-body">
+                            <b>
+                                {{'Adresse mail'|trans}}
+                            </b>:
+                            {{ user.email }}
+                            <br>
+                                <b>
+                                    {{'Téléphone'|trans}}
+                                </b>:
+                                {{ user.telephone }}</br />
+                            <b>
+                                {{'Nom'|trans}}
+                            </b>
+                            :
+                            {{ user.nom|upper }}<br/>
+                            <b>
+                                {{'Prénom'|trans}}
+                            </b>
+                            :
+                            {{ user.prenom|capitalize }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6 s12">
+                    <div class="panel panel-default ">
+                        <div class="panel-heading">
+                            <b>{{'Informations Complémentaires'|trans}}</b>
+                        </div>
+                        <div class="panel-body">
+                            <b>
+                                {{'Biographie'|trans}}
+                            </b>:
+                            {{ user.bio }}</br />
+                    </div>
+                </div>
+            </div>
 
-	</div>
-	</div>
+        </div>
+    </div>
 </div>
 </div>

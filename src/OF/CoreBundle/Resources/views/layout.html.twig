@@ -9,10 +9,21 @@
         <link rel="stylesheet" href="{{asset('css/materialize.css')}}">
         <link rel="stylesheet" href="{{asset('css/layout.css')}}">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js "></script>
     </head>
 
     <body >
-    <div class="navbar-fixed  ">
+        {% if error is defined and error %}
+
+            <script>
+                Materialize.toast("<i class='material-icons'>error</i>  {{ error.messageKey|trans(error.messageData, 'security') }}", 4000, 'red darken-3 white-text'); // 4000 is the duration of the toast
+            </script>
+        {% endif %}
+  
+
+        <div class="navbar-fixed">
             <nav id="top-nav">
                 <div class="nav-wrapper">
 
@@ -35,37 +46,51 @@
                                 </a>
                             </li>
                         </ul>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li>
-                                <a href="sass.html">
-                                    Login
-                                </a>
-                            </li>
-                            <li>
-                                <span id="orElement">or</span>
-                            </li>
-                            <li>
-                                <a id="signupButtonNavBar" href="collapsible.html">
-                                    <span class=" btn-large waves-effect waves-light gradientGreen">Sign up</span>
-                                </a>
-                            </li>
+                        <ul id="" class="right">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <li>
+                                    <a href="{{path('fos_user_profile_show')}}" ><img class="circle left" src="{{ asset(app.user.getWebProfilePicturePath) }}" style="height : 30px; width:30px; margin-top:15px; margin-right:5px; margin-left:5px;" alt="">
+                                        {{app.user.prenom|capitalize}}</a>
+                                </li>
+
+                            {% else %}
+
+                                <li>
+                                    <a href="{{path('fos_user_security_login')}}">
+                                        Login
+                                    </a>
+                                </li>
+                                <li>
+                                    <span id="orElement">or</span>
+                                </li>
+                                <li>
+                                    <a id="signupButtonNavBar" href="{{path('fos_user_security_register')}}">
+                                        <span class=" btn-large waves-effect waves-light gradientGreen">Sign up</span>
+                                    </a>
+                                </li>
+                            {% endif %}
                         </ul>
 
                     </div>
                 </div>
             </nav>
+
         </div>
-        {% block body %}
-        {% endblock %}
-        </body>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+             
+        {% block body %}{% endblock %}
+    </body>
 
     <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
     <script src="{{asset('js/truffle-contract.js')}}"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="{{asset('js/app.js')}}"></script>
-
+    <!-- Initialisations -->
+    <script>
+    
+        $(document).ready(function () {
+            $(".button-collapse").sideNav();
+            $('select').material_select();
+        });
+    </script>
+    {% block javascripts %}{% endblock %}
 </html>
