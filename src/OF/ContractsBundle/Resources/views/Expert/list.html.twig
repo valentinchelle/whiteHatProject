@@ -1,0 +1,43 @@
+{% extends "OFCoreBundle::layout.html.twig" %}
+{% block body %}
+    <div class="center-align">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+    <div class="container">
+        {% set compteur = 0 %}
+        {% for contract in pagination %}
+            {% if compteur % 4 == 0 %}<div class="row">{% endif %}
+
+            <div class="col m3">
+                <div class=" card elevation1 hoverable_card center">
+                    <div class="center card-icon">
+                        <img src="{{asset('images/cisco-logo.jpg')}}" alt="" class="circle responsive-img">
+                    </div>
+                    <div class="card_title">
+                        CISCO
+                    </div>
+                    <div class="card_comment">
+                        Reward :
+                        <b>{{contract.bounty}}</b>
+                        <br/>
+                        Estimated difficulty :
+                        <b>{{contract.difficulty}}</b>
+                    </div><br/>
+                    <div class="card_button ">
+
+                        <a class="waves-effect waves-light btn-hollow gradientRed red">
+                            <div class="textButton">
+                                More infos</div>
+                        </a>
+
+                    </div><br/>
+
+                </div>
+            </div>
+
+            {% set compteur = compteur + 1 %}
+            {% if compteur % 4 == 0 %}</div>{% endif %}
+        {% endfor %}
+         {% if compteur % 4 != 0 %}</div>{% endif %}
+    </div>
+{% endblock %}

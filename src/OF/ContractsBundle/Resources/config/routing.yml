@@ -4,3 +4,6 @@ of_contracts_homepage:
 of_contracts_new_contract:
     path:   newcontract/
     defaults: { _controller: OFContractsBundle:Enterprise:newContract }
+of_contracts_list:
+    path: listcontracts/
+    defaults: { _controller: OFContractsBundle:Expert:listContracts}
