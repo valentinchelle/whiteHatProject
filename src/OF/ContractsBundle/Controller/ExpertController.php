@@ -21,10 +21,21 @@ class ExpertController extends Controller
     	$paginator  = $this->get('knp_paginator');
     	$pagination = $paginator->paginate(
         $listQuery, /* query NOT result */
-        $request->query->getInt('p', 1)/*page number*/,
+        $request->query->getInt('page', 1)/*page number*/,
         6/*limit per page*/
     	);
 
         return $this->render('OFContractsBundle:Expert:list.html.twig', array('pagination'=> $pagination));
+    }
+
+    public function  viewContractAction(Request $request, $id){
+        $em = $this->getDoctrine()->getManager();
+        $contract = $this->getDoctrine()->getManager()->getRepository('OFContractsBundle:Contract')->findOneBy(array('id' => $id));
+        if ($contract == NULL){
+        	throw $this->createNotFoundException('Contract not found.');
+        }else{         
+            return $this->render('OFContractsBundle:Expert:view.html.twig', array('contract'=> $contract));
+        }
+
     }
 }

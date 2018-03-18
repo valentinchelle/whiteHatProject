@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="{{asset('css/layout.css')}}">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js "></script>
     </head>
 
@@ -36,7 +37,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="badges.html">
+                                    <a href="{{path('of_entreprise_panel')}}">
                                         Enterprise
                                     </a>
                                 </li>

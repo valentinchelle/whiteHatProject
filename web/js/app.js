@@ -1,3 +1,4 @@
+
 window.App = {
   web3Provider: null,
   contracts: {},
@@ -24,21 +25,20 @@ window.App = {
     web3 = new Web3(App.web3Provider);
 
     // We load the Contract. This file is the JSON located in the contracts directory.
-    $.getJSON('CompanyContract.json', function (data) {
+    $.getJSON('../../../build/contracts/CompanyContract.json', function (data) {
       // Get the necessary contract artifact file and instantiate it with truffle-contract.
       var WHCArtifact = data;
       App.contracts.WHC = TruffleContract(WHCArtifact);
       App.contracts.WHC.setProvider(App.web3Provider);
     });
 
-    return App.contractListing();
   },
 
   loadContract: function (address) {
     console.log("Loading Contract...");
     // We will load the instance we want to play with.
     App.contracts.WHC
-      .at(address) //Address of the contract
+      .at(address) //Address of the contractt
       .then(instance => {
         App.instances.WHC = instance;
 
@@ -53,15 +53,24 @@ window.App = {
 
   createContract: function () {
     // This will create a new instance of WHC Contract.
-    var parieur = $("#choiceUser select").val();
-    // This creates a new WHC Game.
-    App.contracts.WHC.new("password", { from: parieur, value: web3.toWei(10, "ether"), gas: 6000000 }).then(function (instance) {
+    // It will look for variables in HTML DOM.
 
-      console.log("New contract created");
-      App.instances.WHC = instance;
-      App.appendDisplayInstance(App.instances.WHC.address);
-      $("#no_games_available").hide();
-      App.refreshingAccount();
+    var difficulty = $("#difficultyField select").val();
+    var bounty = $("#bountyField").val();
+    // This creates a new WHC Game.
+    Materialize.toast('Publishing on the blockchain', 3000);
+    
+    App.contracts.WHC.new("password", { value: web3.toWei(bounty, "ether"), gas: 6000000 }).then(function (instance) {
+      Materialize.toast('Published on the blockchain, publishing on BDD', 3000) ;
+      //Ajax call to save the contract in bdd
+      $.ajax({
+        url: 	Routing.generate('of_contracts_new_contract_ajax'),
+        method: "post",
+        data: {bounty: bounty, difficulty: difficulty}
+      }).done(function(){
+        Materialize.toast('Published on BDD', 3000) ;
+
+      });
     });
   },
 

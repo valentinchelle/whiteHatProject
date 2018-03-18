@@ -1,9 +1,25 @@
 of_contracts_homepage:
     path:     /
     defaults: { _controller: OFContractsBundle:Default:index }
+
 of_contracts_new_contract:
     path:   newcontract/
     defaults: { _controller: OFContractsBundle:Enterprise:newContract }
+
+of_contracts_new_contract_ajax:
+    path: ajaxnewcontract/
+    defaults: {_controller: OFContractsBundle:Enterprise:createContract}
+    methods:    [post]
+    options:
+        expose: true
+of_entreprise_panel:
+    path:   panelenterprise/
+    defaults: { _controller: OFContractsBundle:Enterprise:panel }
+
 of_contracts_list:
     path: listcontracts/
     defaults: { _controller: OFContractsBundle:Expert:listContracts}
+
+of_contracts_view:
+    path: viewcontract/{id}
+    defaults: { _controller: OFContractsBundle:Expert:viewContract}

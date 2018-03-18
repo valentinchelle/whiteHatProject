@@ -13,8 +13,8 @@ contract CompanyContract{
         password = pass;
     }
 
-    function passAttempt(string password) public {
-        if(keccak256(password) == hashCode){
+    function passAttempt(string pass) public {
+        if(keccak256(pass) == hashCode){
             // The pass has been found.
             // The sender gets the bounty
             require(msg.sender.send(bounty));

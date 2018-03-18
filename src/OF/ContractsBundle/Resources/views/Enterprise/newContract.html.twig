@@ -2,7 +2,22 @@
 {% block body %}
     <div class="container">
         <div class="card elevation1">
-            {{form(form)}}
+            
+        <div class="input-field" id="difficultyField">
+            <select>
+            <option value="" disabled selected>Estimated Difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            </select>
+
+        </div>
+        <div class="input-field col s6">
+          <input id="bountyField" type="text" class="validate">
+          <label for="firbountyField">Bounty</label>
+        </div>
+
+            <button onclick="App.createContract()">Create a new contract</button>
         </div>
     </div>
 

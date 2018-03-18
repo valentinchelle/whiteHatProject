@@ -7,4 +7,5 @@
             "savePath": "/web/css"
         }
     ],
+    "git.ignoreLimitWarning": true,
 }
