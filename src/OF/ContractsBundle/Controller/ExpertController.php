@@ -22,7 +22,7 @@ class ExpertController extends Controller
     	$pagination = $paginator->paginate(
         $listQuery, /* query NOT result */
         $request->query->getInt('page', 1)/*page number*/,
-        6/*limit per page*/
+        8/*limit per page*/
     	);
 
         return $this->render('OFContractsBundle:Expert:list.html.twig', array('pagination'=> $pagination));

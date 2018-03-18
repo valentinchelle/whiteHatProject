@@ -1,7 +1,8 @@
 {% extends "OFCoreBundle::layout.html.twig" %}
 {% block body %}
-    <div class="col m3">
-        <div class=" card elevation1 hoverable_card center">
+<div class="row">
+    <div class="col m3 offset-m4">
+        <div class="  card dark elevation1 hoverable_card center">
             <div class="center card-icon">
                 <img src="{{asset('images/cisco-logo.jpg')}}" alt="" class="circle responsive-img">
             </div>
@@ -14,16 +15,27 @@
                 <br/>
                 Estimated difficulty :
                 <b>{{contract.difficulty}}</b>
+                <br />
+                Address on the blockchain :
+                <b>{{contract.address}}</b>
             </div><br/>
+                <div class="row">
+                <div class="input-field col s12">
+                    <input  id="passField" type="text" class="validate">
+                    <label for="passField">Password</label>
+                </div>
+            </div>
+            <input id="address" value="{{contract.address}}">
             <div class="card_button ">
-
-                <a href="" class="waves-effect waves-light btn-hollow gradientRed red">
+<button onclick="App.tryPass()">Try</button>
+                <a href="" class="waves-effect waves-light btn-hollow gradientRed red" onclick="App.tryPass()">
                     <div class="textButton">
-                        More infos</div>
+                        Try</div>
                 </a>
 
             </div><br/>
 
         </div>
     </div>
+</div>
 {% endblock %}

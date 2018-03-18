@@ -4,13 +4,11 @@ contract CompanyContract{
     address public contractCreator;
     uint public bounty;
     bytes32 public hashCode;
-    string public password;
 
     function CompanyContract(string pass) payable public {
         bounty = msg.value;
         contractCreator = msg.sender;
-        hashCode = keccak256("afze");
-        password = pass;
+        hashCode = keccak256(pass);
     }
 
     function passAttempt(string pass) public {

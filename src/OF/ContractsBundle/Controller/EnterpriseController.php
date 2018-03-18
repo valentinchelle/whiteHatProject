@@ -35,6 +35,7 @@ class EnterpriseController extends Controller
             $contract = new Contract();
             $contract->setBounty($value);
             $contract->setDifficulty($difficulty);
+            $contract->setAddress($request->get(('address')));
             $em->persist($contract);
             $em->flush();
             return new Response('Contract saved');

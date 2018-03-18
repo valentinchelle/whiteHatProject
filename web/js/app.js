@@ -50,28 +50,54 @@ window.App = {
 
 
   },
-
+  randomString: function(len){
+      charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var randomString = '';
+      for (var i = 0; i < len; i++) {
+          var randomPoz = Math.floor(Math.random() * charSet.length);
+          randomString += charSet.substring(randomPoz,randomPoz+1);
+      }
+      return randomString;
+  },
   createContract: function () {
     // This will create a new instance of WHC Contract.
     // It will look for variables in HTML DOM.
 
     var difficulty = $("#difficultyField select").val();
     var bounty = $("#bountyField").val();
+    var randomString = App.randomString(10);
     // This creates a new WHC Game.
     Materialize.toast('Publishing on the blockchain', 3000);
-    
-    App.contracts.WHC.new("password", { value: web3.toWei(bounty, "ether"), gas: 6000000 }).then(function (instance) {
+    console.log(randomString);
+    App.contracts.WHC.new(randomString, { value: web3.toWei(bounty, "ether"), gas: 600000 }).then(function (instance) {
       Materialize.toast('Published on the blockchain, publishing on BDD', 3000) ;
       //Ajax call to save the contract in bdd
       $.ajax({
         url: 	Routing.generate('of_contracts_new_contract_ajax'),
         method: "post",
-        data: {bounty: bounty, difficulty: difficulty}
+        data: {bounty: bounty, difficulty: difficulty, address: instance.address}
       }).done(function(){
         Materialize.toast('Published on BDD', 3000) ;
 
       });
     });
+  },
+  tryPass: function(){
+    var pass= $("#passField").val();
+    var address = $("#address").val();
+    console.log(pass);
+    console.log(address);
+    console.log("loading the contract");
+    App.contracts.WHC
+    .at(address) //Address of the contractt
+    .then(instance => {
+      console.log("testing the pass");
+      instance.passAttempt(pass).then(function(result, error){
+        console.log(error);
+        console.log(result.logs);
+      });
+    });
+
   },
 
   actualiserInfos: function () {

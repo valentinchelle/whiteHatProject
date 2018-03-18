@@ -36,6 +36,11 @@ class Contract
      * @ORM\Column(type="text", nullable=true)
 
     */
+    private $address;
+    /**
+     * @ORM\Column(type="text", nullable=true)
+
+    */
     private $report;
 
 
@@ -119,5 +124,29 @@ class Contract
     public function getReport()
     {
         return $this->report;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return Contract
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }
