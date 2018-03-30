@@ -1,9 +1,14 @@
 {% extends "OFCoreBundle::layout.html.twig" %}
 {% block body %}
     <div class="container">
-        <div class="card elevation1">
-            <a href="{{path('of_contracts_new_contract')}}">Créer un nouveau contract</a>
-            
+        <div class="row">
+        <a href="{{path('of_contracts_new_contract')}}">
+            <div class="card elevation1 col m3 gradientRed">
+                <br /><br />
+                Créer un nouveau contract
+                <br /><br /><br />
+            </div>
+            </a>
         </div>
     </div>
 

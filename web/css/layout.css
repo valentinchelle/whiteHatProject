@@ -101,14 +101,14 @@ main {
 
 /* Section by section */
 #firstSection {
-  background: #F8FAFF;
+  background: #373b52;
 }
 
 #firstSection h1 {
   color: #8994c6;
-  font-weight: 200;
-  font-size: 24px;
-  line-height: 40px;
+  font-weight: 800;
+  font-size: 80px;
+  color: #fff;
 }
 
 /* Cards */
@@ -289,7 +289,6 @@ input:not([type]), input[type="text"]:not(.browser-default), input[type="passwor
   border-left: 2px solid #f1f1f1;
   border-right: 2px solid #f1f1f1;
   border-radius: 2px;
-  background: #f1f1f1;
 }
 
 .input-field > label:not(.label-icon).active {

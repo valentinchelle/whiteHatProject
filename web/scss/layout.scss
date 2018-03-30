@@ -97,13 +97,13 @@ box-shadow:0 16px 32px 0 rgba(62,57,107,0.2);
 
 /* Section by section */
 #firstSection {
-    background:$background-color;
+    background:$dark-background-color;
 }
 #firstSection h1 {
     color:$font-color-light;
-    font-weight:200;
-    font-size:24px;
-    line-height: 40px;
+    font-weight:800;
+    font-size:80px;
+    color:#fff;
 }
 
 /* Cards */
@@ -280,7 +280,6 @@ h1, h2, h3, h4, h5, h6 {
         border-left:2px solid rgb(241, 241, 241);
         border-right:2px solid rgb(241, 241, 241);
         border-radius:2px;
-        background: rgb(241, 241, 241);
     }
     .input-field > label:not(.label-icon).active{
         transform:translateY(-16px) scale(0.8);

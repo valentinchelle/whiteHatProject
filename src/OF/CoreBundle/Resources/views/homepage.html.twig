@@ -1,13 +1,16 @@
 {% extends "OFCoreBundle::layout.html.twig" %}
 {% block body %}
 
-    <section id="firstSection" class="fullHeight valign-wrapper horizontalCenter center-align">
+    <section id="firstSection" class="fullHeight valign-wrapper horizontalCenter ">
+   
+            
         <div class="container " id="mainContainer">
-            <div class="row">
+            <div class="row" style="z-index:100">
+            
                 <div class="col s12">
-                    <h1>Cybersecurity<br/>
+                    <h1 class="left" >Cybersecurity<br/>
                         expertise<br/>
-                        for everyone</h1>
+                        for everyone.</h1>
                 </div>
                 <div class="col s12">
                     <div class="row" id="listeInstances"></div>
@@ -17,12 +20,11 @@
                         There are no game available. You can still create one.<br/><br/>
 
                     </div>
-                    <a onclick="App.createContract()" class="waves-effect waves-light btn-large gradientRed">
-                        <i class="material-icons left">add_circle_outline</i>Create a game</a>
                 </div>
 
             </div>
         </div>
+     <div id="particle-js" style="width:100%; position:absolute; z-index:0;" ></div>
     </section>
 
     <section id="listWHCs" class="fullHeight valign-wrapper horizontalCenter center-align">
@@ -195,4 +197,13 @@
 </section>
 
 </div>
+{% endblock %}
+{% block javascripts %}
+{{parent()}}
+<script src="{{asset('js/particlejs/particles.min.js')}}"></script>
+<script>
+particlesJS.load('particle-js', "{{asset('js/particlejs/particle.json')}}", function() {
+  console.log('callback - particles.js config loaded');
+});
+</script>
 {% endblock %}
