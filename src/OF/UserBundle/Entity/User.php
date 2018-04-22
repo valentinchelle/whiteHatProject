@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\Util\SecureRandom;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * User
  * @ORM\HasLifecycleCallbacks()
@@ -82,6 +82,11 @@ class User extends BaseUser
 
     protected $profilePicturePath;
 
+    /**
+     * @ORM\OneToMany(targetEntity="OF\ContractsBundle\Entity\Company", mappedBy="owner")
+     */
+    private $companies;
+
 
 
         public function __construct()
@@ -90,6 +95,8 @@ class User extends BaseUser
         // your own logic
         $this->setSidenav(1);
         $this->setprofilePicturePath("default.png") ;
+        
+        $this->companies = new ArrayCollection();
     }
 
   
@@ -438,4 +445,38 @@ class User extends BaseUser
     }
 
 
+
+    /**
+     * Add company
+     *
+     * @param \OF\ContractsBundle\Entity\Company $company
+     *
+     * @return User
+     */
+    public function addCompany(\OF\ContractsBundle\Entity\Company $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Remove company
+     *
+     * @param \OF\ContractsBundle\Entity\Company $company
+     */
+    public function removeCompany(\OF\ContractsBundle\Entity\Company $company)
+    {
+        $this->companies->removeElement($company);
+    }
+
+    /**
+     * Get companies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompanies()
+    {
+        return $this->companies;
+    }
 }

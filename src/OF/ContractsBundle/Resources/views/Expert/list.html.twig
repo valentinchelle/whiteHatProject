@@ -14,7 +14,9 @@
                         <img src="{{asset('images/cisco-logo.jpg')}}" alt="" class="circle responsive-img">
                     </div>
                     <div class="card_title">
-                        CISCO
+                    {% if contract.company != NULL %}
+                        {{contract.company.name}}
+                    {% endif %}
                     </div>
                     <div class="card_comment">
                         Reward :

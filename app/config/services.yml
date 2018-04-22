@@ -14,7 +14,10 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-  
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:

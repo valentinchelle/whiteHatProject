@@ -3,7 +3,7 @@ of_contracts_homepage:
     defaults: { _controller: OFContractsBundle:Default:index }
 
 of_contracts_new_contract:
-    path:   newcontract/
+    path:   newcontract/{idCompany}
     defaults: { _controller: OFContractsBundle:Enterprise:newContract }
 
 of_contracts_new_contract_ajax:
@@ -23,3 +23,7 @@ of_contracts_list:
 of_contracts_view:
     path: viewcontract/{id}
     defaults: { _controller: OFContractsBundle:Expert:viewContract}
+
+of_company_add:
+    path: company/add/
+    defaults: { _controller: OFContractsBundle:Enterprise:newCompany}

@@ -64,6 +64,7 @@ window.App = {
     // It will look for variables in HTML DOM.
 
     var difficulty = $("#difficultyField select").val();
+    var company = $("#button_create_contract").attr("company");
     var bounty = $("#bountyField").val();
     var randomString = App.randomString(10);
     // This creates a new WHC Game.
@@ -75,7 +76,7 @@ window.App = {
       $.ajax({
         url: 	Routing.generate('of_contracts_new_contract_ajax'),
         method: "post",
-        data: {bounty: bounty, difficulty: difficulty, address: instance.address}
+        data: {bounty: bounty, difficulty: difficulty, address: instance.address, company: company}
       }).done(function(){
         Materialize.toast('Published on BDD', 3000) ;
 

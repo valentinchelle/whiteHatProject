@@ -2,7 +2,7 @@
 {% block body %}
     <div class="container">
         <div class="card elevation1">
-            
+        <div class="card_title">{{'New contract for'|trans}} {{company.name}}</div>
         <div class="input-field" id="difficultyField">
             <select>
             <option value="" disabled selected>Estimated Difficulty</option>
@@ -25,7 +25,7 @@
           <label for="descriptionField">Describe your website</label>
         </div>
 
-            <button onclick="App.createContract()">Create a new contract</button>
+            <button id="button_create_contract" onclick="App.createContract()" company="{{company.id}}">Create a new contract</button>
         </div>
     </div>
 

@@ -62,5 +62,18 @@
 
         </div>
     </div>
+    
+    <a href="{{path('of_company_add')}}">{{'Add a company'|trans}}</a>
+    {% for company in user.companies %}
+    <div class="card elevation1 white ">
+        <div class="card_title">{{company.name}}</div>
+        {{company.date|localizeddate('long', 'none')}}
+        <a href="{{path('of_contracts_new_contract', {"idCompany":company.id})}}">Create a contract</a>
+       {% for test in company.contracts %}
+       azef
+       {% endfor %}
+    </div>
+    {% endfor %}
+  
 </div>
 </div>

@@ -285,10 +285,11 @@ h1, h2, h3, h4, h5, h6 {
 input:not([type]), input[type="text"]:not(.browser-default), input[type="password"]:not(.browser-default), input[type="email"]:not(.browser-default), input[type="url"]:not(.browser-default), input[type="time"]:not(.browser-default), input[type="date"]:not(.browser-default), input[type="datetime"]:not(.browser-default), input[type="datetime-local"]:not(.browser-default), input[type="tel"]:not(.browser-default), input[type="number"]:not(.browser-default), input[type="search"]:not(.browser-default), textarea.materialize-textarea {
   padding-left: 5px;
   border-bottom: 2px solid #dddddd;
+  border: 1px solid #dddddd;
   border-top: 2px solid #f1f1f1;
   border-left: 2px solid #f1f1f1;
+  border: 1px solid #dddddd;
   border-right: 2px solid #f1f1f1;
-  border-radius: 2px;
 }
 
 .input-field > label:not(.label-icon).active {
@@ -297,5 +298,16 @@ input:not([type]), input[type="text"]:not(.browser-default), input[type="passwor
 
 .input-field > label:not(.label-icon) {
   padding-left: 5px;
+}
+
+.input-field .prefix {
+  background-color: #f1f1f1;
+  border: 3px;
+  padding: 7px;
+  margin-top: -7px;
+  border-left: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  border-radius: 5px 0px 0px 5px;
 }
 /*# sourceMappingURL=layout.css.map */

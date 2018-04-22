@@ -151,12 +151,10 @@ class UserController extends SecurityController {
         if ($user == null){
            throw new NotFoundHttpException("Page Introuvable."); 
         }
-        
-
-        $publications = $this->getDoctrine()->getManager()->getRepository('OFBlogBundle:Publication')->createQueryBuilder('alias')->where('alias.auteur ='.$user->getId())->add('orderBy', 'alias.date DESC')->getQuery()->getResult();
+        $companies = $user->getCompanies();
 
 
-        return $this->render('OFUserBundle:Profile:profileExterior.html.twig', array('user'=> $user, 'publications'=>$publications));
+        return $this->render('OFUserBundle:Profile:profileExterior.html.twig', array('user'=> $user, 'companies'=>$companies ));
     }
 
 
