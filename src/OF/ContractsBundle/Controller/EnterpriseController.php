@@ -65,7 +65,7 @@ class EnterpriseController extends Controller
 
     public function panelAction(Request $request){
         $em = $this->getDoctrine()->getManager();
-        return $this->render('OFContractsBundle:Enterprise:panel.html.twig');
+        return $this->render('OFContractsBundle:Enterprise:panel.html.twig', array('user'=>$this->getUser()));
     }
 
     public function newCompanyAction(Request $request){

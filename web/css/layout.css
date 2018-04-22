@@ -17,6 +17,9 @@ body {
   background: linear-gradient(to right, #ff5281, #fe867d);
 }
 
+.darkBackground {
+  background: linear-gradient(to right, #3E396B, #3E396B);
+}
 .red {
   color: #ff5281;
 }
@@ -28,7 +31,9 @@ body {
 .light_dark_font {
   color: #8994c6;
 }
-
+.white{
+  color:#fff;
+}
 /* top nav */
 nav {
   background-color: #F8FAFF;

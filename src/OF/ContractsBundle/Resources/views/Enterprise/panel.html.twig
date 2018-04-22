@@ -1,17 +1,26 @@
 {% extends "OFCoreBundle::layout.html.twig" %}
 {% block body %}
-    <div class="container">
-        <div class="row">
-        <a href="{{path('of_contracts_new_contract')}}">
-            <div class="card elevation1 col m3 gradientRed">
-                <br /><br />
-                Créer un nouveau contract
-                <br /><br /><br />
-            </div>
-            </a>
-        </div>
-    </div>
+ <div class="container">
 
 
+   <a href="{{path('of_company_add')}}">{{'Add a company'|trans}}</a>
+    {% for company in user.companies %}
+    <ul class="collection with-header elevation1">
+        <li class="collection-header darkBackground ">
+        <img src="{{ asset(company.getWebLogoPicturePath) }}" alt="" class="circle left" style="height : 50px; width:50px; margin-right:20px; margin-left:0px; margin-top:20px;"> 
+        <h4 style="color:#fff">{{company.name}}</h4>
+        <a class="waves-effect waves-light btn-hollow  gradientRed white right" style="margin-top:-60px;" href="">
+            <div class="textButton" style="padding: 10px; ">{{'Edit the company'|trans}}</div>
+        </a>
+        
+        </li>
+        <li class="collection-item center darkBackground" > <a href="{{path('of_contracts_new_contract', {"idCompany":company.id})}}">Create a contract</a></li>
+        {% for contract in company.contracts %}
+                <li class="collection-item"><div>zf<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+  
+</div>
 
 {% endblock %}
