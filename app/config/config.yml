@@ -7,7 +7,6 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-
 framework:
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
@@ -84,3 +83,4 @@ fos_user:
     registration:
         form:
             type: OF\UserBundle\Form\Type\RegistrationFormType
+    

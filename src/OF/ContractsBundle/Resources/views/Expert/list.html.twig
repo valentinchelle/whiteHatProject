@@ -11,7 +11,9 @@
             <div class="col m3">
                 <div class=" card elevation1 hoverable_card center">
                     <div class="center card-icon">
-                        <img src="{{asset('images/cisco-logo.jpg')}}" alt="" class="circle responsive-img">
+                    {% if contract.company != NULL %}
+                        <img src="{{ asset(contract.company.getWebLogoPicturePath) }}" alt="logo{{contract.company.name}}"class="circle responsive-img">
+                    {% endif %}
                     </div>
                     <div class="card_title">
                     {% if contract.company != NULL %}

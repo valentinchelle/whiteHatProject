@@ -77,6 +77,12 @@ class EnterpriseController extends Controller
             $company->setOwner($this->getUser());
             $company->setDate(new \Datetime());
             $this->getUser()->addCompany($company);
+           
+            // For the picture :
+            $company->preUploadLogoPicture();
+            $company->uploadLogoPicture();
+
+            // We are done, so we have to persist.
             $em->persist($company);
             $em->persist($this->getUser());
 
@@ -84,5 +90,6 @@ class EnterpriseController extends Controller
         }
         return $this->render('OFContractsBundle:Enterprise:companyForm.html.twig', array('form'=>$form->createView()));
     }
+
 
 }

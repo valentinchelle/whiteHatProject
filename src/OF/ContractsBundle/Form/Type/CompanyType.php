@@ -16,8 +16,8 @@ class CompanyType extends AbstractType
         // add your custom field
         $builder
         ->add('name')
+        ->add('logoPictureFile')
         ->add('save',SubmitType::class,array('label' => 'Enregistrer'));
-    
 
     }
 

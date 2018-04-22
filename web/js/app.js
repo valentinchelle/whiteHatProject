@@ -28,6 +28,7 @@ window.App = {
     $.getJSON('../../../build/contracts/CompanyContract.json', function (data) {
       // Get the necessary contract artifact file and instantiate it with truffle-contract.
       var WHCArtifact = data;
+      console.log(WHCArtifact);
       App.contracts.WHC = TruffleContract(WHCArtifact);
       App.contracts.WHC.setProvider(App.web3Provider);
     });
@@ -90,12 +91,22 @@ window.App = {
     console.log(address);
     console.log("loading the contract");
     App.contracts.WHC
-    .at(address) //Address of the contractt
+    .at(address) //Address of the contract
     .then(instance => {
       console.log("testing the pass");
       instance.passAttempt(pass).then(function(result, error){
         console.log(error);
-        console.log(result.logs);
+        
+        var result = (result.logs[0].args.message.c[0]);
+        if(result == 1010){
+          console.log("The pass is not correct :(");
+
+        }else if(result == 1111){
+          console.log("The pass is correct :)");
+        }
+        else{
+          console.log("Erreur dans la réponse");
+        }
       });
     });
 
