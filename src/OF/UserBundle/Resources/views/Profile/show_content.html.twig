@@ -66,10 +66,13 @@
     <a href="{{path('of_company_add')}}">{{'Add a company'|trans}}</a>
     {% for company in user.companies %}
     <div class="card elevation1 white ">
+           <img src="{{ asset(company.getWebLogoPicturePath) }}" alt="" class="circle left" style="height : 50px; width:50px; margin-top:-10px; margin-left:20px;">
         <div class="card_title">{{company.name}}</div>
         {{company.date|localizeddate('long', 'none')}}
+        
         <a href="{{path('of_contracts_new_contract', {"idCompany":company.id})}}">Create a contract</a>
-        <img src="{{ asset(company.getWebLogoPicturePath) }}" alt="logo{{company.name}}">
+
+        
        {% for contract in company.contracts %}
             zf
        {% endfor %}

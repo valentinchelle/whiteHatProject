@@ -41,6 +41,11 @@ class Contract
      * @ORM\Column(type="text", nullable=true)
 
     */
+    private $name;
+    /**
+     * @ORM\Column(type="text", nullable=true)
+
+    */
     private $report;
 
     /**
@@ -154,5 +159,29 @@ class Contract
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Set company
+     *
+     * @param \OF\ContractsBundle\Entity\Company $company
+     *
+     * @return Contract
+     */
+    public function setCompany(\OF\ContractsBundle\Entity\Company $company = null)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return \OF\ContractsBundle\Entity\Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
     }
 }

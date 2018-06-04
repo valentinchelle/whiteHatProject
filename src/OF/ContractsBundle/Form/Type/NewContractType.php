@@ -16,7 +16,7 @@ class NewContractType extends AbstractType
         // add your custom field
         $builder
         ->add('bounty')
-    
+        ->add('name')
         ->add('difficulty',TextType::class, array(
     'required'   => false, 'label' => 'Difficulty'))
     ->add('save',SubmitType::class,array('label' => 'Enregistrer'));

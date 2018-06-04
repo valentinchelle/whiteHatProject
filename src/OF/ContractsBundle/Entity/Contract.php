@@ -41,6 +41,11 @@ class Contract
      * @ORM\Column(type="text", nullable=true)
 
     */
+    private $name;
+    /**
+     * @ORM\Column(type="text", nullable=true)
+
+    */
     private $report;
 
     /**
@@ -178,5 +183,29 @@ class Contract
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Contract
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

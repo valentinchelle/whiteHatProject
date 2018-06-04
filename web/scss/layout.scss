@@ -5,6 +5,20 @@ $dark-background-color: #373b52;
 $font-color-light: #8994c6;
 $font-color-darker: #3E396B;
 $font-color-red: #ff5281;
+
+$white-alternative : #f6f9fc;
+$bluemain: #6772e5;
+$bluesecond:#d9fcff;
+
+$purplemain: #beb0f4;
+$purplesecond: #7356b6;
+
+$pinkmain: #f6a4eb;
+$pinksecond: #9251ac;
+
+$greenmain: #15b776;
+$greensecond: #b9f4bc;
+
 body{
     background-color: $background-color;    
     font-family: "Montserrat", Helvetica, Arial, sans-serif;
@@ -32,17 +46,33 @@ body{
       color:$font-color-light;
   }
 /* top nav */
-nav{
-    background-color:$background-color;
-    color:$font-color-darker;
+
+nav .nav-white{
+    background:none;
+    color:$white-alternative;
+    position: absolute;
 }
-nav ul a{
-    color:$font-color-darker;
+nav .nav-white ul a{
+    color:$white-alternative;
+    font-weight: 300;
+
+}
+nav .nav-white .brand-logo{
+    color:#fff;
+    
+}
+nav{
+    background:none;
+    color:$dark-background-color;
+    position: absolute;
+}
+nav  ul a{
+    color:$dark-background-color;
     font-weight: 300;
 
 }
 nav .brand-logo{
-    color:$font-color-darker;
+    color:$dark-background-color;
     
 }
 
@@ -75,7 +105,8 @@ nav .brand-logo{
     height: 100vh;
 }
 
-#mainContainer{
+main #firstSection{
+    padding-top:0px;
     margin-top: -94px;
 }
 main{
@@ -97,15 +128,39 @@ box-shadow:0 16px 32px 0 rgba(62,57,107,0.2);
 
 /* Section by section */
 #firstSection {
-    background:$dark-background-color;
+    background:$white-alternative;
 }
 #firstSection h1 {
     color:$font-color-light;
-    font-weight:800;
-    font-size:80px;
+    font-weight:600;
+    font-size:30px;
     color:#fff;
 }
+p#textHeader {
+    
+    color:$bluesecond;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 28px;
+}
 
+#stripes {
+    position: absolute;
+   
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transform: skewY(-12deg);
+    transform: skewY(-12deg);
+    -webkit-transform-origin: 0;
+    transform-origin: 0;
+    background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
+}
+#stripes :first-child {
+    width: 33.33333%;
+    left: -16.66666%;
+    background: #53f;
+}
 /* Cards */
 .card{
     padding:20px;
@@ -298,4 +353,81 @@ h1, h2, h3, h4, h5, h6 {
         border-top:1px solid #dddddd;
         border-bottom:1px solid #dddddd;
         border-radius: 5px 0px 0px 5px;
+    }
+
+    .button_square{
+        white-space: nowrap;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 14px;
+        -webkit-box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+        box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+        background: #fff;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: .020em;
+        color: $bluemain;
+        text-decoration: none;
+        -webkit-transition: all .15s ease;
+        transition: all .15s ease;
+    }  
+    .button_square_filled{
+        white-space: nowrap;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 14px;
+        -webkit-box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+        box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+        background: $bluemain;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: .020em;
+        color: #fff;
+        text-decoration: none;
+        -webkit-transition: all .15s ease;
+        transition: all .15s ease;
+    }
+
+    .button_square_pink{
+        white-space: nowrap;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 14px;
+        -webkit-box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+        box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+        background: $pinksecond;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: .020em;
+        color: #fff;
+        text-decoration: none;
+        -webkit-transition: all .15s ease;
+        transition: all .15s ease;
+    }
+
+    .button_square_filled:hover {
+        filter: brightness(115%);
+        -webkit-box-shadow: 0 5px 7px rgba(50,50,93,.11),0 2px 4px rgba(0,0,0,.08);
+        box-shadow: 0 5px 7px rgba(50,50,93,.11),0 2px 4px rgba(0,0,0,.08);
+      }
+
+
+      #panelCollection {
+          border:0px;
+      }
+
+      #panelCollection h4 {
+        border:0px;
+        font-weight: 400;
+        letter-spacing: .020em;
+        
     }

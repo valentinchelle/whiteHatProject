@@ -2,36 +2,39 @@
 {% block body %}
 
     <section id="firstSection" class="fullHeight valign-wrapper horizontalCenter ">
-   
-            
-        <div class="container " id="mainContainer">
-            <div class="row" style="z-index:100">
-            
-                <div class="col s12">
-                    <h1 class="left" >Cybersecurity<br/>
-                        expertise<br/>
-                        for everyone.</h1>
-                </div>
-                <div class="col s12">
-                    <div class="row" id="listeInstances"></div>
-                </div>
-                <div class="col s12">
-                    <div style="display:none" id="no_games_available">
-                        There are no game available. You can still create one.<br/><br/>
 
-                    </div>
-                </div>
+   <div id="stripes" aria-hidden="true" style="z-index:0">
+    <span></span>
+    </div>
+            
+        <div class="container " style="z-index:100">
+        
+            <div class="row" >
+            
+                <div class="col s6" style="margin-top:50px;"> 
+                    <h1 >Cybersecurity expertise  for everyone.</h1> 
+                    <p id="textHeader">     
+                        Splash is helping companies to get their applications secured and functionnal. <br />       
+                        Our blockchain establishes a secure link between companies and security experts. <br />
+                        
+                    </p>
+                    <a class="button_square_filled" href="#">Learn more</a>      <a href="{{path('fos_user_security_register')}}" class="button_square">Create an account</a>
 
+                </div>
+                <div class="col s6">
+                    <img class="right" src="{{asset('images/buildingWebsite.svg')}}" width="80%" style="margin-top:10px;">
+                </div>
+                
             </div>
         </div>
-     <div id="particle-js" style="width:100%; position:absolute; z-index:0;" ></div>
+     <!--<div id="particle-js" style="width:100%; position:absolute; z-index:0;" ></div>-->
     </section>
 
     <section id="listWHCs" class="fullHeight valign-wrapper horizontalCenter center-align">
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <h3>A massive community of cybersecurity experts</h3>
+                    <h3>We work for</h3>
                 </div>
             </div>
             <div class="row" id="listeInstances">

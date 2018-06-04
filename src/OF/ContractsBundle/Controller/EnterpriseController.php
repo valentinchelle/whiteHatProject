@@ -47,8 +47,10 @@ class EnterpriseController extends Controller
 
             $value = $request->get(('bounty'));
             $difficulty = $request->get(('difficulty'));
+            $name = $request->get(('name'));
             $contract = new Contract();
             $contract->setCompany($company);
+            $contract->setName($name);
             $company->addContract($contract);
             $contract->setBounty($value);
             $contract->setDifficulty($difficulty);

@@ -67,6 +67,7 @@ window.App = {
     var difficulty = $("#difficultyField select").val();
     var company = $("#button_create_contract").attr("company");
     var bounty = $("#bountyField").val();
+    var name = $("#nameField").val();
     var randomString = App.randomString(10);
     // This creates a new WHC Game.
     Materialize.toast('Publishing on the blockchain', 3000);
@@ -77,7 +78,7 @@ window.App = {
       $.ajax({
         url: 	Routing.generate('of_contracts_new_contract_ajax'),
         method: "post",
-        data: {bounty: bounty, difficulty: difficulty, address: instance.address, company: company}
+        data: {bounty: bounty, difficulty: difficulty,name: name, address: instance.address, company: company}
       }).done(function(){
         Materialize.toast('Published on BDD', 3000) ;
 

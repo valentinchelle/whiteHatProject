@@ -1,0 +1,14 @@
+fond : #fff
+fond-alternatif : #f6f9fc
+
+
+bluemain: #6772e5
+
+purplemain: #beb0f4
+purplesecond: #7356b6
+
+pinkmain: #f6a4eb
+pinksecond: #9251ac
+
+greenmain: #15b776
+greensecond: #b9f4bc
