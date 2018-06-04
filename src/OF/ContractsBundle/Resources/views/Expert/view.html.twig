@@ -1,46 +1,93 @@
 {% extends "OFCoreBundle::layout.html.twig" %}
 {% block body %}
-<div class="row">
-    <div class="col m3 offset-m4">
-    
-        <div class="  card dark elevation1 hoverable_card center">
-            <div class="center card-icon">
-                 {% if contract.company != NULL %}
-                    <img src="{{ asset(contract.company.getWebLogoPicturePath) }}" alt="logo{{contract.company.name}}"class="circle responsive-img">
-                {% endif %}
-            </div>
-            <div class="card_title">
-                {% if contract.company != NULL %}
-                        {{contract.company.name}}
-                {% endif %}
-            </div>
-            <div class="card_comment">
-                Reward :
-                <b>{{contract.bounty}}</b>
-                <br/>
-                Estimated difficulty :
-                <b>{{contract.difficulty}}</b>
-                <br />
-                Address on the blockchain :
-                <b>{{contract.address}}</b>
-            </div><br/>
-                <div class="row">
-                <div class="input-field col s12">
-                    <input  id="passField" type="text" class="validate">
-                    <label for="passField">Password</label>
+ <div id="stripesGrey" aria-hidden="true" style="z-index:0">
+    <span></span>
+    </div>
+<section id="firstSection" class="fullHeight valign-wrapper horizontalCenter ">
+    <div class="row">
+        <div class="col m4 offset-m2">
+            <div class="card elevation1 hoverable_card ">
+            
+                <div class="card_title center">
+                    {% if contract.company != NULL %}
+                            {{'Contract for '|trans}}{{contract.company.name}}
+                    {% endif %}
                 </div>
+                
+                <div class="card_comment">
+                <br />
+                    Reward : <b>{{contract.bounty}}</b>
+                    <br/>
+                    Estimated difficulty :
+                    <b>{{contract.difficulty}}</b>
+                    <br />
+                    Address on the blockchain :
+                    <b>{{contract.address[:30]}}..</b>
+                </div><br/>
             </div>
-            <input id="address" value="{{contract.address}}">
-            <div class="card_button ">
-<button onclick="App.tryPass()">Try</button>
-                <a href="" class="waves-effect waves-light btn-hollow gradientRed red" onclick="App.tryPass()">
-                    <div class="textButton">
-                        Try</div>
-                </a>
+            
+        
+        </div>
+        <div class="col m4">
+            <div class="card dark elevation1 hoverable_card center" id="testPanel">
+                <div class="card_title center">
+                    Did you find the splashcode?
+                </div>
+                 <br />
 
-            </div><br/>
 
+                <div id="loadingTestCode" class="" hidden>
+                
+
+                    <div id="etape1" hidden>
+                        <img class="" src="{{asset('images/loading.gif')}}" alt="loading" width="30px"> Loading the Contract...
+                    </div>
+                    <div id="etape2" hidden>
+                    <i class="material-icons" style="color:#15b776; margin-top:10px;" >done</i> Loading the Contract<br />
+                    <img class="" src="{{asset('images/loading.gif')}}" alt="loading" width="30px"> Waiting for the transaction...
+                    </div>
+                    <div id="etape3" hidden>
+                        <i class="material-icons" style="color:#15b776">done</i>Loading the Contract <br />
+                        <i class="material-icons" style="color:#15b776">done</i>Waiting for the transaction <br />
+                        Testing the pass...
+                    </div>
+                    <div id="etape4" hidden>
+                        <i class="material-icons" style="color:#15b776">done</i>Loading the Contract <br />
+                        <i class="material-icons" style="color:#15b776">done</i>Waiting for the transaction <br />                        
+                        <i class="material-icons" style="color:#15b776">done</i>Testing the pass<br />
+                         <div class="successMessage" style="text-align:left" ><b>Success</b> : Congratulations, you will receive the bounty.</div>
+                    </div>
+                    <div id="etape5" hidden>
+                        <i class="material-icons" style="color:#15b776">done</i>Loading the Contract <br />
+                        <i class="material-icons" style="color:#15b776">done</i>Waiting for the transaction <br />                        
+                        <i class="material-icons" style="color:#ff5281">close</i>Testing the pass<br /> <br />
+                        <div class="errorMessage" style="text-align:left" ><b>Error</b> : Wrong splashcode. You should verify your splashcode and <a style="color:#fff" href="#" onClick="App.resetTry()"><b>try again</b></a>.</div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row" id="testInput">
+               
+                    Paste it here and earn your money ! 
+                    <input hidden id="address" value="{{contract.address}}">
+                    <div class="input-field col s10">
+                        <input  id="passField" type="text" class="validate">
+                    </div>
+                     <div class="input-field col s2">
+                        <div class="card_button ">
+                            <a href="#" class="button_square" style="width:100%" onclick="App.tryPass()">
+                           
+                                    Try
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                   
+            </div>
         </div>
     </div>
-</div>
+</section>
 {% endblock %}

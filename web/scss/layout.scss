@@ -46,21 +46,6 @@ body{
       color:$font-color-light;
   }
 /* top nav */
-
-nav .nav-white{
-    background:none;
-    color:$white-alternative;
-    position: absolute;
-}
-nav .nav-white ul a{
-    color:$white-alternative;
-    font-weight: 300;
-
-}
-nav .nav-white .brand-logo{
-    color:#fff;
-    
-}
 nav{
     background:none;
     color:$dark-background-color;
@@ -75,6 +60,21 @@ nav .brand-logo{
     color:$dark-background-color;
     
 }
+nav.nav-white{
+    background:none;
+    color:$white-alternative;
+    position: absolute;
+}
+nav.nav-white ul a{
+    color:$white-alternative;
+    font-weight: 300;
+
+}
+nav.nav-white .brand-logo{
+    color:#fff;
+    
+}
+
 
 #top-nav, #top-nav .container  {
     height: 94px;
@@ -156,6 +156,20 @@ p#textHeader {
     transform-origin: 0;
     background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
 }
+#stripesGrey{
+
+    position: absolute;
+    margin-top:-100px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transform: skewY(-12deg);
+    transform: skewY(-12deg);
+    -webkit-transform-origin: 0;
+    transform-origin: 0;
+    background: -webkit-gradient(linear,left top,right top,from(#e4ecf5),to(#f5fdff));
+    background: linear-gradient(90deg,#e4ecf5,#f5fdff);
+}
 #stripes :first-child {
     width: 33.33333%;
     left: -16.66666%;
@@ -184,6 +198,8 @@ box-shadow: -1px 2px 5px 1px rgba(207, 207, 207, 0.7),
     font-weight: 500;
     color:#000;
     font-size:20px;
+    border-bottom: 2px solid #f6f9fc;
+    padding: 0px 0px 10px;
 }
 .card_comment{
     color:$font-color-light;
@@ -430,4 +446,25 @@ h1, h2, h3, h4, h5, h6 {
         font-weight: 400;
         letter-spacing: .020em;
         
+    }
+
+    #passField{
+        background:#fff;
+        border-radius:5px;
+        font-weight:600;
+        color:$bluemain;
+        font-size:20px;
+        text-align:center;
+    }
+
+    .errorMessage{
+        background-color:$font-color-red;
+        color:#fff;
+        padding: 10px;
+    }
+
+    .successMessage{
+        background-color:$greenmain;
+        color:#fff;
+        padding: 10px;
     }

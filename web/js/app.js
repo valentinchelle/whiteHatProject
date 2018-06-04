@@ -63,13 +63,15 @@ window.App = {
   createContract: function () {
     // This will create a new instance of WHC Contract.
     // It will look for variables in HTML DOM.
-
+    $('#formCreatingContract').hide();
+    $('#loading').show();
     var difficulty = $("#difficultyField select").val();
     var company = $("#button_create_contract").attr("company");
     var bounty = $("#bountyField").val();
     var name = $("#nameField").val();
     var randomString = App.randomString(10);
     // This creates a new WHC Game.
+    
     Materialize.toast('Publishing on the blockchain', 3000);
     console.log(randomString);
     App.contracts.WHC.new(randomString, { value: web3.toWei(bounty, "ether"), gas: 600000 }).then(function (instance) {
@@ -86,23 +88,37 @@ window.App = {
     });
   },
   tryPass: function(){
+    
+    $('#testInput').hide();
+    $('#loadingTestCode').show();
+    $('#etape1').show();
     var pass= $("#passField").val();
     var address = $("#address").val();
     console.log(pass);
     console.log(address);
     console.log("loading the contract");
+    $('#etape1').hide();
+    $('#etape2').show();
     App.contracts.WHC
     .at(address) //Address of the contract
     .then(instance => {
+      
       console.log("testing the pass");
       instance.passAttempt(pass).then(function(result, error){
+        $('#etape2').hide();
+        $('#etape3').show();
         console.log(error);
         
+       
         var result = (result.logs[0].args.message.c[0]);
         if(result == 1010){
+          $('#etape3').hide();
+          $('#etape5').show();
           console.log("The pass is not correct :(");
 
         }else if(result == 1111){
+          $('#etape3').hide();
+          $('#etape4').show();
           console.log("The pass is correct :)");
         }
         else{
@@ -111,6 +127,13 @@ window.App = {
       });
     });
 
+  },
+  resetTry: function(){
+    $('#etape4').hide();
+    $('#etape5').hide();
+    $('#loadingTestCode').hide();
+    $('#testInput').show();
+    
   },
 
   actualiserInfos: function () {

@@ -1,31 +1,35 @@
 {% extends "OFCoreBundle::layout.html.twig" %}
 {% block body %}
     <div class="container">
-        <div class="card elevation1">
-        <div class="card_title">{{'New contract for'|trans}} {{company.name}}</div>
-        <div class="input-field" id="difficultyField">
-            <select>
-            <option value="" disabled selected>Estimated Difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-            </select>
+        <div class="card elevation1" id="formCreatingContract">
+            <div class="card_title">{{'New contract for'|trans}} {{company.name}}</div>
+            <div class="input-field" id="difficultyField">
+                <select>
+                <option value="" disabled selected>Estimated Difficulty</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                </select>
 
+            </div>
+            <div class="input-field col s6 ">
+            <input id="bountyField" type="text" class="validate ">
+            <label for="bountyField">Bounty</label>
+            </div>
+            <div class="input-field col s6 ">
+                <input id="nameField" type="text" class="validate ">
+                <label for="nameField">Name</label>
+            </div>
+            <div class="input-field col s6 ">
+                <input id="descriptionField" type="text" class="validate ">
+                <label for="descriptionField">Describe your website</label>
+            </div>
+            <div class="center">
+                <a href="#" class="button_square" id="button_create_contract" onclick="App.createContract()" company="{{company.id}}">Create a new contract</a>
+            <div>
         </div>
-        <div class="input-field col s6 ">
-          <input id="bountyField" type="text" class="validate ">
-          <label for="bountyField">Bounty</label>
-        </div>
-        <div class="input-field col s6 ">
-          <input id="nameField" type="text" class="validate ">
-          <label for="nameField">Name</label>
-        </div>
-        <div class="input-field col s6 ">
-          <input id="descriptionField" type="text" class="validate ">
-          <label for="descriptionField">Describe your website</label>
-        </div>
-
-            <button id="button_create_contract" onclick="App.createContract()" company="{{company.id}}">Create a new contract</button>
+        <div class="row" id="loading">
+        We are generating your contract...
         </div>
     </div>
 

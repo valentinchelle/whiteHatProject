@@ -30,21 +30,6 @@ body {
 }
 
 /* top nav */
-nav .nav-white {
-  background: none;
-  color: #f6f9fc;
-  position: absolute;
-}
-
-nav .nav-white ul a {
-  color: #f6f9fc;
-  font-weight: 300;
-}
-
-nav .nav-white .brand-logo {
-  color: #fff;
-}
-
 nav {
   background: none;
   color: #373b52;
@@ -58,6 +43,21 @@ nav ul a {
 
 nav .brand-logo {
   color: #373b52;
+}
+
+nav.nav-white {
+  background: none;
+  color: #f6f9fc;
+  position: absolute;
+}
+
+nav.nav-white ul a {
+  color: #f6f9fc;
+  font-weight: 300;
+}
+
+nav.nav-white .brand-logo {
+  color: #fff;
 }
 
 #top-nav, #top-nav .container {
@@ -147,6 +147,20 @@ p#textHeader {
   background: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
 }
 
+#stripesGrey {
+  position: absolute;
+  margin-top: -100px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transform: skewY(-12deg);
+  transform: skewY(-12deg);
+  -webkit-transform-origin: 0;
+  transform-origin: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#e4ecf5), to(#f5fdff));
+  background: linear-gradient(90deg, #e4ecf5, #f5fdff);
+}
+
 #stripes :first-child {
   width: 33.33333%;
   left: -16.66666%;
@@ -176,6 +190,8 @@ p#textHeader {
   font-weight: 500;
   color: #000;
   font-size: 20px;
+  border-bottom: 2px solid #f6f9fc;
+  padding: 0px 0px 10px;
 }
 
 .card_comment {
@@ -427,5 +443,26 @@ input:not([type]), input[type="text"]:not(.browser-default), input[type="passwor
   border: 0px;
   font-weight: 400;
   letter-spacing: .020em;
+}
+
+#passField {
+  background: #fff;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #6772e5;
+  font-size: 20px;
+  text-align: center;
+}
+
+.errorMessage {
+  background-color: #ff5281;
+  color: #fff;
+  padding: 10px;
+}
+
+.successMessage {
+  background-color: #15b776;
+  color: #fff;
+  padding: 10px;
 }
 /*# sourceMappingURL=layout.css.map */

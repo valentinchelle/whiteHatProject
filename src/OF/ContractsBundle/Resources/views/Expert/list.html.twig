@@ -9,17 +9,17 @@
             {% if compteur % 4 == 0 %}<div class="row">{% endif %}
 
             <div class="col m3">
-                <div class=" card elevation1 hoverable_card center">
+                <div class=" card elevation1 hoverable_card ">
                     <div class="center card-icon">
                     {% if contract.company != NULL %}
                         <img src="{{ asset(contract.company.getWebLogoPicturePath) }}" alt="logo{{contract.company.name}}"class="circle responsive-img">
                     {% endif %}
                     </div>
-                    <div class="card_title">
+                    <div class="card_title center">
                     {% if contract.company != NULL %}
                         {{contract.company.name}}
                     {% endif %}
-                    </div>
+                    </div><br />
                     <div class="card_comment">
                         Reward :
                         <b>{{contract.bounty}}</b>
@@ -27,7 +27,7 @@
                         Estimated difficulty :
                         <b>{{contract.difficulty}}</b>
                     </div><br/>
-                    <div class="card_button ">
+                    <div class="card_button center">
 
                         <a class="waves-effect waves-light btn-hollow gradientRed red" href="{{path('of_contracts_view',{id: contract.id})}}">
                             <div class="textButton">
