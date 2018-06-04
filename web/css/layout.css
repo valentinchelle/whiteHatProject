@@ -465,4 +465,9 @@ input:not([type]), input[type="text"]:not(.browser-default), input[type="passwor
   color: #fff;
   padding: 10px;
 }
+
+.slashcodeAnnouncement {
+  background: #6772e5;
+  color: #fff;
+}
 /*# sourceMappingURL=layout.css.map */

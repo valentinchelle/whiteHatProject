@@ -71,18 +71,21 @@ window.App = {
     var name = $("#nameField").val();
     var randomString = App.randomString(10);
     // This creates a new WHC Game.
-    
+    $("#titleAction").html("We are generating your contract...");
     Materialize.toast('Publishing on the blockchain', 3000);
+    $("#titleAction").html("We are publishing on the blockchain...");
     console.log(randomString);
     App.contracts.WHC.new(randomString, { value: web3.toWei(bounty, "ether"), gas: 600000 }).then(function (instance) {
-      Materialize.toast('Published on the blockchain, publishing on BDD', 3000) ;
+      $("#titleAction").html("It is now published on the blockchain, we are publishing it on our database...");
       //Ajax call to save the contract in bdd
       $.ajax({
         url: 	Routing.generate('of_contracts_new_contract_ajax'),
         method: "post",
         data: {bounty: bounty, difficulty: difficulty,name: name, address: instance.address, company: company}
       }).done(function(){
+        $("#titleAction").html('It is done :) <br /> <br /> Your slashcode is <b class="slashcodeAnnouncement">'+randomString +'</b>.<br /> Keep it safe, our team will actively look for it.');
         Materialize.toast('Published on BDD', 3000) ;
+       
 
       });
     });
