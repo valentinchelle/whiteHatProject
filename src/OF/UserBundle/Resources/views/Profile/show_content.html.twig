@@ -3,17 +3,18 @@
     <div class="row">
         <div class="fos_user_user_show col s12 ">
 	<div class="card elevation1 white">
+    <div class="right">
+        
+        <a class="button_square" href="{{ path('fos_user_security_logout')}}">{{'Logout'|trans}}</a>
+    </div>
             <div class="profilepic" style=" display:flex;   justify-content:center; width:100%;  align-items:center;">
                 <img style="border: 5px solid #fff;  width:160px; height:160px; margin: 0 auto; margin-top : -50px; " class=" elevation0 circle" src="{{ asset(user.getWebProfilePicturePath) }}" title="profilePicture">
             </div>
 
             <div style="text-align:center; width:100%; font-size : 25px; font-weight:600">{{ user.nom|upper}}
                 {{ user.prenom|capitalize}}</div>
-            <div style="text-align:center; width:100%; font-size : 20px; font-weight:400">
-                <i>{{ user.username }}</i>
-            </div>
             <div style="text-align:center; width:100%; font-size : 13px; font-weight:400">
-                <a href="{{ path('fos_user_profile_edit')}}">{{'Modifier mon profil'|trans}}</a>
+                <a class="button_square_filled" href="{{ path('fos_user_profile_edit')}}">{{'Edit my profile'|trans}}</a>
             </div>
 
             <br/>
@@ -62,22 +63,8 @@
 
         </div>
     </div>
-    
-    <a href="{{path('of_company_add')}}">{{'Add a company'|trans}}</a>
-    {% for company in user.companies %}
-    <div class="card elevation1 white ">
-           <img src="{{ asset(company.getWebLogoPicturePath) }}" alt="" class="circle left" style="height : 50px; width:50px; margin-top:-10px; margin-left:20px;">
-        <div class="card_title">{{company.name}}</div>
-        {{company.date|localizeddate('long', 'none')}}
-        
-        <a href="{{path('of_contracts_new_contract', {"idCompany":company.id})}}">Create a contract</a>
 
-        
-       {% for contract in company.contracts %}
-            zf
-       {% endfor %}
-    </div>
-    {% endfor %}
+   
   
 </div>
 </div>

@@ -69,6 +69,7 @@ window.App = {
     var company = $("#button_create_contract").attr("company");
     var bounty = $("#bountyField").val();
     var name = $("#nameField").val();
+    var description = $("#descriptionField").val();
     var randomString = App.randomString(10);
     // This creates a new WHC Game.
     $("#titleAction").html("We are generating your contract...");
@@ -81,7 +82,7 @@ window.App = {
       $.ajax({
         url: 	Routing.generate('of_contracts_new_contract_ajax'),
         method: "post",
-        data: {bounty: bounty, difficulty: difficulty,name: name, address: instance.address, company: company}
+        data: {bounty: bounty, difficulty: difficulty,name: name, address: instance.address, company: company, description: description}
       }).done(function(){
         $("#titleAction").html('It is done :) <br /> <br /> Your slashcode is <b class="slashcodeAnnouncement">'+randomString +'</b>.<br /> Keep it safe, our team will actively look for it.');
         Materialize.toast('Published on BDD', 3000) ;

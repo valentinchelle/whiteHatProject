@@ -14,7 +14,7 @@
             </span>
         </li>
         {% for contract in company.contracts %}
-                <li class="collection-item"><div>Name : {{contract.name}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                <li class="collection-item"><div>Name : {{contract.name}}<div class="secondary-content"><i class="material-icons" >build</i>                <a href="{{path('of_contracts_view',{id: contract.id})}}"><i class="material-icons">visibility</i></a></div></div></li>
         {% endfor %}
     </ul>
     {% endfor %}

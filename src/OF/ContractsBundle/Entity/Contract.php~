@@ -49,6 +49,12 @@ class Contract
     private $report;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+
+    */
+    private $description;
+
+    /**
      * @ORM\ManyToOne(targetEntity="OF\ContractsBundle\Entity\Company", inversedBy="contracts")
      * @ORM\JoinColumn(name="company_id", referencedColumnName="id")
      */
@@ -183,5 +189,29 @@ class Contract
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Contract
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

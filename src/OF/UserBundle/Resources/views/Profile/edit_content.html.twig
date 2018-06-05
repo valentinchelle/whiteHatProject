@@ -8,7 +8,7 @@
 
 
 <div class="card elevation1 white">
-	<div class="panel-heading"><i class="material-icons left">person</i> <b> {{'Modification de profil'|trans|upper}} </b></div>
+	<div class="panel-heading"><i class="material-icons left">person</i> <b> {{'Editing the profile'|trans|upper}} </b></div>
 	<div class="panel-body"><br />
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
 	<div class="row">
@@ -44,7 +44,7 @@
 				<div class="row">
 				<div class="col s12">
     	{{ form_row(form.current_password) }}
-    	<div class="center">{{ form_row(form.save) }}</div>
+    	<div class="center">{{ form_row(form.save, {attr:{class:'button_square_filled'}}) }}</div>
 			</div>
 			</div>
 	</div>

@@ -3,38 +3,43 @@
     <div class="center-align">
         {{ knp_pagination_render(pagination) }}
     </div>
+    <br /><br />
     <div class="container">
         {% set compteur = 0 %}
         {% for contract in pagination %}
             {% if compteur % 4 == 0 %}<div class="row">{% endif %}
 
-            <div class="col m3">
-                <div class=" card elevation1 hoverable_card ">
-                    <div class="center card-icon">
-                    {% if contract.company != NULL %}
-                        <img src="{{ asset(contract.company.getWebLogoPicturePath) }}" alt="logo{{contract.company.name}}"class="circle responsive-img">
-                    {% endif %}
-                    </div>
-                    <div class="card_title center">
+            <div class="col m3" >
+                <div class=" contract_card card elevation1 hoverable_card ">
+
+                    <div class="left card-icon">
+                        {% if contract.company != NULL %}
+                            <img src="{{ asset(contract.company.getWebLogoPicturePath) }}" alt="logo{{contract.company.name}}"class="circle responsive-img">
+                        {% endif %}
+                   </div>
+                    <div class="company_title left">
                     {% if contract.company != NULL %}
                         {{contract.company.name}}
                     {% endif %}
-                    </div><br />
-                    <div class="card_comment">
-                        Reward :
+                    </div>
+                    <div class="card_tag right elevation0 {{contract.difficulty}}">
+                    {{contract.difficulty}}
+                    </div>
+                    <br /><br />
+                    <div class="card_title center">
+                    {{contract.name}}
+                    </div>
+                    <div class="reward center">
                         <b>{{contract.bounty}}</b>
-                        <br/>
-                        Estimated difficulty :
-                        <b>{{contract.difficulty}}</b>
                     </div><br/>
+                    
                     <div class="card_button center">
 
-                        <a class="waves-effect waves-light btn-hollow gradientRed red" href="{{path('of_contracts_view',{id: contract.id})}}">
+                        <a class=" elevation1 waves-effect waves-light btn-round gradientRed red" href="{{path('of_contracts_view',{id: contract.id})}}">
                             <div class="textButton">
                                 More infos</div>
                         </a>
-
-                    </div><br/>
+                    </div>
 
                 </div>
             </div>
