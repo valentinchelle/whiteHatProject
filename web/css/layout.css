@@ -29,6 +29,22 @@ body {
   color: #8994c6;
 }
 
+/* Reset Default skin */
+button {
+  background-color: #bbb;
+  padding: .5em;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 /* top nav */
 nav {
   background: #F8FAFF;
@@ -42,7 +58,7 @@ nav ul a {
 }
 
 nav .brand-logo {
-  color: #373b52;
+  color: #6772e5;
 }
 
 nav.nav-white {
@@ -319,18 +335,22 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+#blah {
+  max-height: 300px;
+}
+
 .label-file {
   cursor: pointer;
-  color: #00b1ca;
+  color: #000;
   font-weight: bold;
   display: inline-block;
   margin: 0 auto;
   position: relative;
-  width: 50%;
+  border: 5px dashed #dfdfdf;
 }
 
 .label-file:hover {
-  color: #25a5c4;
+  color: #000;
 }
 
 /* et on masque le input */

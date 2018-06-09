@@ -27,3 +27,9 @@ of_contracts_view:
 of_company_add:
     path: company/add/
     defaults: { _controller: OFContractsBundle:Enterprise:newCompany}
+of_contracts_disable_contract_ajax:
+    path: ajaxdisablecontract/
+    defaults: {_controller: OFContractsBundle:Expert:disableContract}
+    methods:    [post]
+    options:
+        expose: true

@@ -62,6 +62,12 @@ class Contract
     private $company;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+
+    */
+    private $disabled;
+
+    /**
      * Get id
      *
      * @return int
@@ -237,5 +243,29 @@ class Contract
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set disabled
+     *
+     * @param boolean $disabled
+     *
+     * @return Contract
+     */
+    public function setDisabled($disabled)
+    {
+        $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Get disabled
+     *
+     * @return boolean
+     */
+    public function getDisabled()
+    {
+        return $this->disabled;
     }
 }

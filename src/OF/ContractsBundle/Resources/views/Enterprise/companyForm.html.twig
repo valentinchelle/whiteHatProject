@@ -1,9 +1,31 @@
 {% extends "OFCoreBundle::layout.html.twig" %}
 {% block body %}
-<div class="container">
-    <div class="card elevation1">
-        {{form(form)}}       
-    </div>
+    <div class="container">
+        <div class="card elevation1">
+            {{ form_start(form) }}
+            {{ form_row(form.name) }}
+            <div class="center">
+                <br/>
+                {{ form_widget(form.logoPictureFile, {'attr':{'class': 'imgInp'}})}}
 
-</div>
-{% endblock %}
+                <label for="{{form.logoPictureFile.vars.id}}" class="label-file center">
+
+                    <img id="blah" src="{{ asset("images/white.jpg") }}"="images/white.jpg" )=")" }}""="}}""" style="" class="center" alt="Image"/>
+
+                    <div class="middle valign-wrapper center">
+                        <div class="text">
+                            Upload your logo
+                        </div>
+                    </div>
+
+                </label>
+            </div>
+            <br/>
+
+            <div class="center">
+                <br/>
+                {{ form_row(form.save, {attr:{class:'button_square_filled'}}) }}</div>
+            {{ form_end(form) }}
+        </div>
+
+    {% endblock %}

@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OF\ContractsBundle\Entity\Contract;
 use OF\ContractsBundle\Form\Type\NewContractType;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\HttpFoundation\Response;
 
 class ExpertController extends Controller
 {
@@ -16,7 +16,7 @@ class ExpertController extends Controller
         return $this->render('OFContractsBundle:Expert:index.html.twig');
     }
     public function listContractsAction(Request $request){
-        $listQuery = $this->getDoctrine()->getManager()->getRepository('OFContractsBundle:Contract')->createQueryBuilder('a')->getQuery();
+        $listQuery = $this->getDoctrine()->getManager()->getRepository('OFContractsBundle:Contract')->createQueryBuilder('a')->andWhere('a.disabled IS NULL')->orderBy('a.id', 'DESC')->getQuery();
         //on rajoute la pagination
     	$paginator  = $this->get('knp_paginator');
     	$pagination = $paginator->paginate(
@@ -37,5 +37,20 @@ class ExpertController extends Controller
             return $this->render('OFContractsBundle:Expert:view.html.twig', array('contract'=> $contract));
         }
 
+    }
+
+    public function disableContractAction(Request $request){
+
+        $value = $request->get(('id'));
+        $em = $this->getDoctrine()->getManager();
+
+        $contract = $this->getDoctrine()->getManager()->getRepository('OFContractsBundle:Contract')->findOneBy(array('id' => $value));
+        if($contract==null){
+            throw $this->createNotFoundException('The contract does not exist.');
+        }
+        $contract->setDisabled(true);
+        $em->persist($contract);
+        $em->flush();
+        return new Response('Contract saved');
     }
 }

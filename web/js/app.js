@@ -51,14 +51,14 @@ window.App = {
 
 
   },
-  randomString: function(len){
-      charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      var randomString = '';
-      for (var i = 0; i < len; i++) {
-          var randomPoz = Math.floor(Math.random() * charSet.length);
-          randomString += charSet.substring(randomPoz,randomPoz+1);
-      }
-      return randomString;
+  randomString: function (len) {
+    charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var randomString = '';
+    for (var i = 0; i < len; i++) {
+      var randomPoz = Math.floor(Math.random() * charSet.length);
+      randomString += charSet.substring(randomPoz, randomPoz + 1);
+    }
+    return randomString;
   },
   createContract: function () {
     // This will create a new instance of WHC Contract.
@@ -80,23 +80,23 @@ window.App = {
       $("#titleAction").html("It is now published on the blockchain, we are publishing it on our database...");
       //Ajax call to save the contract in bdd
       $.ajax({
-        url: 	Routing.generate('of_contracts_new_contract_ajax'),
+        url: Routing.generate('of_contracts_new_contract_ajax'),
         method: "post",
-        data: {bounty: bounty, difficulty: difficulty,name: name, address: instance.address, company: company, description: description}
-      }).done(function(){
-        $("#titleAction").html('It is done :) <br /> <br /> Your slashcode is <b class="slashcodeAnnouncement">'+randomString +'</b>.<br /> Keep it safe, our team will actively look for it.');
-        Materialize.toast('Published on BDD', 3000) ;
-       
+        data: { bounty: bounty, difficulty: difficulty, name: name, address: instance.address, company: company, description: description }
+      }).done(function () {
+        $("#titleAction").html('It is done :) <br /> <br /> Your slashcode is <b class="slashcodeAnnouncement">' + randomString + '</b>.<br /> Keep it safe, our team will actively look for it.');
+        Materialize.toast('Published on BDD', 3000);
+
 
       });
     });
   },
-  tryPass: function(){
-    
+  tryPass: function () {
+
     $('#testInput').hide();
     $('#loadingTestCode').show();
     $('#etape1').show();
-    var pass= $("#passField").val();
+    var pass = $("#passField").val();
     var address = $("#address").val();
     console.log(pass);
     console.log(address);
@@ -104,40 +104,53 @@ window.App = {
     $('#etape1').hide();
     $('#etape2').show();
     App.contracts.WHC
-    .at(address) //Address of the contract
-    .then(instance => {
-      
-      console.log("testing the pass");
-      instance.passAttempt(pass).then(function(result, error){
-        $('#etape2').hide();
-        $('#etape3').show();
-        console.log(error);
-        
-       
-        var result = (result.logs[0].args.message.c[0]);
-        if(result == 1010){
-          $('#etape3').hide();
-          $('#etape5').show();
-          console.log("The pass is not correct :(");
+      .at(address) //Address of the contract
+      .then(instance => {
 
-        }else if(result == 1111){
-          $('#etape3').hide();
-          $('#etape4').show();
-          console.log("The pass is correct :)");
-        }
-        else{
-          console.log("Erreur dans la réponse");
-        }
+        console.log("testing the pass");
+        instance.passAttempt(pass).then(function (result, error) {
+          $('#etape2').hide();
+          $('#etape3').show();
+          console.log(error);
+
+
+          var result = (result.logs[0].args.message.c[0]);
+          if (result == 1010) {
+            $('#etape3').hide();
+            $('#etape5').show();
+            console.log("The pass is not correct :(");
+
+          } else if (result == 1111) {
+            $('#etape3').hide();
+            $('#etape4').show();
+            console.log("The pass is correct :)");
+            App.disableContract();
+          }
+          else {
+            console.log("Erreur dans la réponse");
+          }
+        });
       });
+
+  },
+  disableContract: function(){
+    $id = $("#firstSection").attr("contract");
+    $.ajax({
+      url: Routing.generate('of_contracts_disable_contract_ajax'),
+      method: "post",
+      data: { id: $id }
+    }).done(function () {
+      alert('effacé');
+
     });
 
   },
-  resetTry: function(){
+  resetTry: function () {
     $('#etape4').hide();
     $('#etape5').hide();
     $('#loadingTestCode').hide();
     $('#testInput').show();
-    
+
   },
 
   actualiserInfos: function () {
@@ -155,7 +168,7 @@ window.App = {
         $("#soldeContrat").empty().append(web3.fromWei(result, "ether").toNumber());
       }
     });
-      App.instances.WHC.contract.password.call(function (error, result) {
+    App.instances.WHC.contract.password.call(function (error, result) {
       if (error) {
         console.log(error);
       } else {
