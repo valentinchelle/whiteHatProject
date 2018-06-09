@@ -19,81 +19,99 @@
                     <div class="input-field">
                         <i class="material-icons prefix">account_circle</i>
                         <input class="col-xs-12 form-control " type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-                        <label for="username">{% trans %}Nom d'utilisateur{% endtrans %}</label>
+                        <label for="username">{% trans %}Username{% endtrans %}</label>
                     </div>
                     <div class="input-field">
                         <i class="material-icons prefix">vpn_key</i>
                         <input class="col-xs-12 form-control" type="password" id="password" name="_password" required="required" />
-                        <label for="password">{{'Mot de passe'|trans}}</label>
+                        <label for="password">{{'Password'|trans}}</label>
                     </div>
 
               <div class="row" style="">
 
                     <div  class="form-group">
                    
-                        <a href="{{path("fos_user_resetting_request")}}" class="light_dark_font right" >{% trans %}Mot de passe oublié ?{% endtrans %}</a>
+                        <a href="{{path("fos_user_resetting_request")}}" class="light_dark_font right" >{% trans %}Lost your password ?{% endtrans %}</a>
                     </div>
                     </div>
                 </div>
                 <div class="center">
-                 <input type="submit" class="btn-round-input white waves-effect waves-light gradientGreen" id="_submit" name="_submit" value="{{'Se connecter'|trans}}" />
+                 <input type="submit" class="btn-round-input white waves-effect waves-light gradientGreen" id="_submit" name="_submit" value="{{'Login'|trans}}" />
                 </div>
             </form>
             </div>
-            <a href="#" class="col s12 center light_dark_font" id="linkRegister">{% trans %}Pas encore membre ? S'enregistrer !{% endtrans %}</a>
+            <a href="#" class="col s12 center light_dark_font" id="linkRegister">{% trans %}Not member yet ? Register now !{% endtrans %}</a>
         </div>
 
 
 
 
-            <div class="col m6 s12 offset-m3 " {% if page == "login" %} style="display: none;" {% endif %} id="enregistrementPanel">
-            <h3 class="center">Welcome !</h3>
-             <h5 class="center light_dark_font" style="margin-top:-20px;">Create an account</h5>
-             <div class="divider-new mt-4 mb-5">
+<div class="col m6 s12 offset-m3 " {% if page == "login" %} style="display: none;" {% endif %} id="enregistrementPanel">
+    <h3 class="center">Welcome !</h3>
+    <h5 class="center light_dark_font" style="margin-top:-20px;">Create an account</h5>
+    <div class="divider-new mt-4 mb-5">
+    </div>
+    <div class="card elevation1">
+    
+        {{ form_start(formRegister, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        <div class="row">
+            <div class="col s12">
+                <div>
+                    <div class="input-field">
+                        <label for="fos_user_registration_form[email]">{{'Email address'|trans}}</label>
+                        <input type="email" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" required="required" class="validate" required="required">
+                    </div>
+                </div>
             </div>
-              <div class="card elevation1">
-                {{ form_start(formRegister, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-                <div class="col s12">
-                    {{form_row(formRegister.email, {attr :{'class': 'validate'}})}}
-                </div>
-                <div class="col m6 s12">
-                <div class="row">
-                <div class="input-field col s12">
-                        <input class="s12 form-control validate" type="text" id="fos_user_registration_form_nom" name="fos_user_registration_form[nom]" required="required" />
-                        <label for="fos_user_registration_form[nom]">{{'Nom'|trans}}</label>
-                </div></div>
-                </div>
-                 <div class="col m6 s12">
-                 <div class="row">
-                <div class="input-field col s12">
-                        <input class="form-control validate" type="text" id="fos_user_registration_form_prenom" name="fos_user_registration_form[prenom]" required="required" />
-                        <label for="fos_user_registration_form[prenom]">{{'Prénom'|trans}}</label>
-                </div></div>
-                </div>
-                <div class="col s12">
-                    {{form_row(formRegister.username, {attr :{'class': 'validate'}})}}
-                </div>
-                <div class="col m6 s12">
-                    {{form_row(formRegister.plainPassword.first, {attr :{'class': 'validate'}})}}
-                </div>
-                {{ form_errors(formRegister.plainPassword.first, {attr :{'class': 'validate'}}) }}
-                <div class="col m6 s12">
-                    {{form_row(formRegister.plainPassword.second, {attr :{'class': 'validate'}})}}
-                </div>
-       
-
-                {{ form_widget(formRegister._token) }}
-                <br />
-                <div class="center">
-                    <input type="submit" id="fos_user_registration_form_save" name="fos_user_registration_form[save]" class="btn-round-input white waves-effect waves-light gradientGreen" label="{{'Register'|trans}}"/>
-
-                 </div>
-
+            <div class="col m6 s12">
+                <div class="input-field">
+                    <label for="fos_user_registration_form[nom]">{{'Last Name'|trans}}</label>
+                    <input class="s12 form-control validate" type="text" id="fos_user_registration_form_nom" name="fos_user_registration_form[nom]" required="required" />
                     
-
-                </div>                
-                 <a href="#" class="col s12 light_dark_font" style="text-align:center;" id="linkLogin">{% trans %}Already an account ? Login !{% endtrans %}</a>
+                </div>
             </div>
+
+
+            <div class="col m6 s12">                    
+                <div class="input-field">
+                    <label for="fos_user_registration_form[prenom]">{{'First name'|trans}}</label>
+                    <input class="form-control validate" type="text" id="fos_user_registration_form_prenom" name="fos_user_registration_form[prenom]" required="required" />
+                        
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <label for="fos_user_registration_form_username" class="required">{{'Username'|trans}}</label>
+                    <input type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" required="required" maxlength="180" pattern=".{2,}" class="validate">
+                </div>
+            </div>
+        
+            <div class="col m6 s12">
+                <div class="input-field">
+                    <label for="fos_user_registration_form_plainPassword_first" class="required">{{'Password'|trans}}</label>
+                    <input type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" autocomplete="new-password" class="validate">
+                </div>
+            </div>
+            <div class="col m6 s12">
+                <div class="input-field">
+                        <label for="fos_user_registration_form_plainPassword_second" class="required">Confirm your password</label>
+                        <input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" autocomplete="new-password" class="validate">
+                </div>
+            </div>
+        </div>
+
+        {{ form_widget(formRegister._token) }}
+        <br />
+        <div class="center">
+            <input type="submit" id="fos_user_registration_form_save" name="fos_user_registration_form[save]" class="btn-round-input white waves-effect waves-light gradientGreen" label="{{'Register'|trans}}"/>
+
+            </div>
+
+            
+
+        </div>                
+            <a href="#" class="col s12 light_dark_font" style="text-align:center;" id="linkLogin">{% trans %}Already an account ? Login !{% endtrans %}</a>
+    </div>
     
 </div>
 

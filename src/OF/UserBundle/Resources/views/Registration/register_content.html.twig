@@ -1,56 +1,70 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-<div class="col m6 s12  offset-m3" id="enregistrementPanel">
-             <div class="divider-new mt-4 mb-5">
+<div class="col m6 s12 offset-m3 " id="enregistrementPanel">
+   
+    <h3 class="center">Welcome !</h3>
+    <h5 class="center light_dark_font" style="margin-top:-20px;">Create an account</h5>
+    <div class="divider-new mt-4 mb-5">
+    </div>
+    <div class="card elevation1">
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        <div class="row">
+            <div class="col s12">
+                <div>
+                    <div class="input-field">
+                        <label for="fos_user_registration_form[email]">{{'Email address'|trans}}</label>
+                        <input type="email" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" required="required" class="validate" required="required">
+                    </div>
+                </div>
             </div>
-              <div class="row card elevation1">
-                 <a href="{{path('fos_user_security_login')}}" class="col s12 " style="text-align:center; color:#95a5a6" id="linkLogin">{% trans %}Already an account ? Login !{% endtrans %}</a>
-                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-                	{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-
-                <div class="col s12">
-                    {{form_row(form.email, {attr :{'class': 'validate'}})}}
-                </div>
-                <div class="col m6 s12">
-                <div class="row">
-                <div class="input-field col s12">
-                        <input class="s12  validate" type="text" id="fos_user_registration_form_nom" name="fos_user_registration_form[nom]" required="required" />
-                        <label for="fos_user_registration_form[nom]">{{'Nom'|trans}}</label>
-                </div></div>
-                </div>
-                 <div class="col m6 s12">
-                 <div class="row">
-                <div class="input-field col s12">
-                        <input class="form-control validate" type="text" id="fos_user_registration_form_prenom" name="fos_user_registration_form[prenom]" required="required" />
-                        <label for="fos_user_registration_form[prenom]">{{'Prénom'|trans}}</label>
-                </div></div>
-                </div>
-                <div class="col s12">
-                    {{form_row(form.username, {attr :{'class': 'validate'}})}}
-                </div>
-               
-
-                <div class="col m6 s12">
-                    {{form_row(form.plainPassword.first, {attr :{'class': 'validate'}})}}
-                </div>
-                
-                <div class="col m6 s12">
-                    {{form_row(form.plainPassword.second, {attr :{'class': 'validate'}})}}
-                </div>
-
-                <div class="col  s12">
-                 {% trans %}Curriculum vitae{% endtrans %}:{{ form_row(form.cvFile) }}
-
+            <div class="col m6 s12">
+                <div class="input-field">
+                    <label for="fos_user_registration_form[nom]">{{'Last Name'|trans}}</label>
+                    <input class="s12 form-control validate" type="text" id="fos_user_registration_form_nom" name="fos_user_registration_form[nom]" required="required" />
                     
-                <input type="checkbox" id="test6" required="required" />
-                <label for="test6">{% trans %}J'accepte les conditions générales. {% endtrans %}<a href="{{asset('termofuse/termsofuse.pdf')}}" target="_blank">{{'LIRE'|trans}}.</a></label><br />
-                <br />
-            	</div>
-            	{{ form_widget(form._token) }}
-                <button type="submit" id="fos_user_registration_form_save" name="fos_user_registration_form[save]" class="col s12 m6 offset-m3 btn" label="S&#039;inscire">{% trans %}S'inscrire{% endtrans %}</button>
-
-
-
                 </div>
             </div>
-<br />
+
+
+            <div class="col m6 s12">                    
+                <div class="input-field">
+                    <label for="fos_user_registration_form[prenom]">{{'First name'|trans}}</label>
+                    <input class="form-control validate" type="text" id="fos_user_registration_form_prenom" name="fos_user_registration_form[prenom]" required="required" />
+                        
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <label for="fos_user_registration_form_username" class="required">{{'Username'|trans}}</label>
+                    <input type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" required="required" maxlength="180" pattern=".{2,}" class="validate">
+                </div>
+            </div>
+        
+            <div class="col m6 s12">
+                <div class="input-field">
+                    <label for="fos_user_registration_form_plainPassword_first" class="required">{{'Password'|trans}}</label>
+                    <input type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" autocomplete="new-password" class="validate">
+                </div>
+            </div>
+            <div class="col m6 s12">
+                <div class="input-field">
+                        <label for="fos_user_registration_form_plainPassword_second" class="required">Confirm your password</label>
+                        <input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" autocomplete="new-password" class="validate">
+                </div>
+            </div>
+        </div>
+
+        {{ form_widget(form._token) }}
+        <br />
+        <div class="center">
+            <input type="submit" id="fos_user_registration_form_save" name="fos_user_registration_form[save]" class="btn-round-input white waves-effect waves-light gradientGreen" label="{{'Register'|trans}}"/>
+
+            </div>
+
+            
+
+        </div>                
+            <a href="#" class="col s12 light_dark_font" style="text-align:center;" id="linkLogin">{% trans %}Already an account ? Login !{% endtrans %}</a>
+    </div>
+    
+</div>
+<br/>

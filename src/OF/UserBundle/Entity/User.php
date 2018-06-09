@@ -94,7 +94,7 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
         $this->setSidenav(1);
-        $this->setprofilePicturePath("default.png") ;
+        
         
         $this->companies = new ArrayCollection();
     }

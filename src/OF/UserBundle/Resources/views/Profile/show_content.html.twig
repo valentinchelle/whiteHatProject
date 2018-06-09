@@ -8,7 +8,7 @@
         <a class="button_square" href="{{ path('fos_user_security_logout')}}">{{'Logout'|trans}}</a>
     </div>
             <div class="profilepic" style=" display:flex;   justify-content:center; width:100%;  align-items:center;">
-                <img style="border: 5px solid #fff;  width:160px; height:160px; margin: 0 auto; margin-top : -50px; " class=" elevation0 circle" src="{{ asset(user.getWebProfilePicturePath) }}" title="profilePicture">
+                <img style="border: 5px solid #fff;  width:160px; height:160px; margin: 0 auto; margin-top : -50px; " class=" elevation0 circle" src="{% if app.user.profilePictureFile is null %} {{ asset("images/default-user.png") }} {% else %}{{ asset(user.getWebProfilePicturePath) }} {% endif %}" title="profilePicture">
             </div>
 
             <div style="text-align:center; width:100%; font-size : 25px; font-weight:600">{{ user.nom|upper}}
