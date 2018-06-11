@@ -565,4 +565,12 @@ input:not([type]), input[type="text"]:not(.browser-default), input[type="passwor
   width: 20px;
   height: 20px;
 }
+
+.profilePictureUserPanel {
+  border: 5px solid #fff;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  margin-top: -90px;
+}
 /*# sourceMappingURL=layout.css.map */

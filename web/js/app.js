@@ -25,7 +25,7 @@ window.App = {
     web3 = new Web3(App.web3Provider);
 
     // We load the Contract. This file is the JSON located in the contracts directory.
-    $.getJSON('../../../build/contracts/CompanyContract.json', function (data) {
+    $.getJSON('../../build/contracts/CompanyContract.json', function (data) {
       // Get the necessary contract artifact file and instantiate it with truffle-contract.
       var WHCArtifact = data;
       console.log(WHCArtifact);
